@@ -15,11 +15,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.datetime :remember_created_at
 
       ## Trackable
-      # t.integer  :sign_in_count, default: 0, null: false
-      # t.datetime :current_sign_in_at
-      # t.datetime :last_sign_in_at
-      # t.string   :current_sign_in_ip
-      # t.string   :last_sign_in_ip
+       t.integer  :sign_in_count, default: 0, null: false
+       t.datetime :current_sign_in_at
+       t.datetime :last_sign_in_at
+       t.string   :current_sign_in_ip
+       t.string   :last_sign_in_ip
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -31,7 +31,24 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
+      
+      t.string "first_name", default: "", null: false
+      t.string "last_name", default: "", null: false
+      t.string "full_name"
+      t.string "matricule"
+      t.string "gender", default: "", null: false
+      t.string "slug"
+      t.string "avatar_profil"
+      t.string "contact", default: "", null: false
+      t.string "payment_status"
+      t.string "contact_money"
+      t.string "opt_money"
+      t.string "city_name", default: "", null: false
+      t.string "level_name"
+      t.string "material_name"
+      t.string "school_name", default: "", null: false
+      t.string "status", default:"Student", null: false
+      t.string "terms"
 
       t.timestamps null: false
     end

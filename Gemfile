@@ -53,7 +53,7 @@ gem "bootsnap", require: false
 ##################### PROJETS GEMS  ################
 
 gem "devise"
-
+gem 'friendly_id'
 
 ############### Deploy    ############
 gem 'platform_sh_rails'
