@@ -55,6 +55,10 @@ gem "bootsnap", require: false
 gem "devise"
 
 
+############### Deploy    ############
+gem 'platform_sh_rails'
+gem 'unicorn', '~> 6.1', :group => :production
+gem "aws-sdk-s3", require: false
 
 
 
