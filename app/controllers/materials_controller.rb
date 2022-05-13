@@ -1,4 +1,5 @@
 class MaterialsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_material, only: %i[ show edit update destroy ]
 
   # GET /materials or /materials.json
@@ -21,7 +22,7 @@ class MaterialsController < ApplicationController
 
   # POST /materials or /materials.json
   def create
-    @material = Material.new(material_params)
+    @material = current_user.materials.build(material_params)
 
     respond_to do |format|
       if @material.save
