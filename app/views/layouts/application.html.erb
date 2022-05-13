@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DevLnclassapp</title>
+    <title><%= title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="description" content="<%= description %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+   
+    <!-- favico-->
+     <%= favicon_link_tag asset_path('HomePage/flavico.png') %>
+     <!-- Tailwind css -->
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <!-- Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+     <!-- WOW Script -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+     <!-- WOW init -->
+     <script> new WOW().init();</script>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-gray-200">
+    
+      <%= yield %>  
   </body>
+
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script>
+        const setup = () => {
+            return {
+            isSidebarOpen: false,
+            currentSidebarTab: null,
+            isSettingsPanelOpen: false,
+            isSubHeaderOpen: false,
+            watchScreen() {
+                if (window.innerWidth <= 1024) {
+                this.isSidebarOpen = false
+                }
+            },
+        }
+      }
+    </script>
 </html>
