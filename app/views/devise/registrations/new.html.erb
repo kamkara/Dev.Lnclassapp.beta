@@ -1,29 +1,115 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<% @title="Inscription" %>
+<div class="bg-blue-400 py-10 ">
+  <div class="md:mx-60 bg-white rounded-md">
+  <div class="card">
+    <div class="card-header shadow-none">
+    <h4 class="bold-semibold Text-base ">Bienvenue au Prépa Bac Bachelier(e)</h4>
+    </div>
+    
+    <p class="mx-auto text-normal">
+    Remplir ces champs et commence ton Prépa BAC Maintenant. <br>
+    Tu es sur la bonne voie vers ton Bac 2022.
+    </p>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <%= form_for(resource, as: resource_name, inline_errors: true, url: registration_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="px-2 md:px-4 py-2">
+        <!-- First && last Name grouped -->
+        <div class="field">
+          <div class="field-body">
+            <div class="field">
+              <label class="label">Nom:</label>
+              <div class="control is-expanded">
+                <%= f.text_field :first_name, placeholder:"votre nom ...", class:"input rounded-md mx-auto" ,  hide_label:true %>
+              </div>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+            <div class="field">
+              <label class="label">Prénom:</label>
+              <div class="control is-expanded">
+                <%= f.text_field :last_name, placeholder:"Votre Prénom ...", class:"input rounded-md mx-auto" ,  hide_label:true %>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- N° matricule -->
+        <div class="field">
+          <label class="label">N° Matricule:</label>
+          <div class="control">
+            <%= f.text_field :matricule, placeholder:"N° Matricule ...",  class:"input rounded-md", 
+              hide_label:true , help:"Votre N° matricule Ex: 10134330R" %>
+          </div>
+        </div>
+        <!-- N° whatsapp  -->
+        <div class="">
+          <label class="label">N° WhatsApp:</label>
+          <div class="control">
+            <%= f.telephone_field :contact, placeholder:"N° WhatsApp ...", class:"rounded-md",
+              hide_label:true, help:"Votre N° WhatsApp en 10 chiffres." %>
+          </div>
+        </div>
+          
+        <!-- City && Serie name -->
+        <div class="field is-horizontal">
+        <!-- City  name -->
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+              <label class="label">Ville :</label>
+                <div class=" is-fullwidth mb-4">
+                  <%= f.select :city_name, @city_ereas.map{|city_erea| [city_erea.title]},
+                                    help:"Selectionne la ville de fréquentation ...", class:" rounded-md",  hide_label:true %>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<%= render "devise/shared/links" %>
+        <!-- Level  name -->
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+              <label class="label">Série :</label>
+                <div class=" is-fullwidth">
+                  <%= f.select :level_name, @levels.map{|level| [level.title]},
+                                  help:"Série A1 , A2 ou D ...", class:" rounded-md",  hide_label:true %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+          <!-- Role -->
+          <%= f.hidden_field :status, value:"Student" %>
+
+          <!-- N° matricule -->
+          <div class="mb-2">
+            <label class="label">Etablissement:</label>
+            <div class="control">
+              <%= f.text_field :school_name, placeholder:"Etablissement ...",
+              class:"rounded-md",  hide_label:true, help:"Nom de votre Etablissement" %>
+            </div>
+          </div>
+            <div class="my-4">
+              <%= f.label "Je suis :", class:"font-bold" %> <br>
+              <%= f.radio_button :gender, :Homme, inline: true, checked: true, class:"" %> <span class="mr-6">Une Femme</span>
+              <%= f.radio_button :gender, :Femme, inline: true %> Un Homme
+            </div>
+        
+         <div class="mb-4">
+            <%= f.check_box :terms, checked: true %>
+              Décochez cette case pour si vous n'acceptez nos <%= link_to "conditions d'utilisation", "#", class:"no-underline font-semibold" %>  et notre <%= link_to "politique de confidentialité", "#", class:"font-semibold" %> 
+            
+         </div>
+          
+
+          <div class="actions">
+            <%= f.submit "Terminer L'Inscription" , class:"button is-info" %>
+          </div>
+
+      </div>
+    <% end %>
+      
+  </div>
+</div>
