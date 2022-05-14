@@ -1,0 +1,5 @@
+<div class="container-fluid">
+    <% @FeedMaterials.each do |material| %>
+        <p><%= link_to material.title, material , class:" no-underline font-semibold text-black" %></p>
+    <% end %>
+</div>

@@ -112,4 +112,5 @@ import * as bootstrap from "bootstrap"
   document.querySelector(".back-to-top").onclick = () => {
     scrollTo(document.documentElement);
   };
-})();
+})();import "trix"
+import "@rails/actiontext"
