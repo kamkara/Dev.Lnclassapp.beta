@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<div class="container-fluid ">
+  <div class="flex flex-wrap ">
+  <div class="m-auto card p-4 rounded-md">
+  <h2 class="mt-20">Se Connecter</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :matricule %><br />
+      <%= f.text_field :logged, autofocus: true, autocomplete: "matricule", placeholder:"N° Matricule" %>
+    </div>
+
+    <div class="field my-4">
+      <%= f.label :"N° WhatsApp" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", placeholder:"N° WhatsApp" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field my-2">
+        <%= f.check_box :remember_me %>
+        <%= f.label :"Toujours connecter" %>
+      </div>
+    <% end %>
+
+    <div class="actions mb-4">
+      <%= f.submit "Se connecter", class:"button is-info rounded-md mt-2" %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  </div>
+</div>
