@@ -1,5 +1,17 @@
 class ResultsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_result, only: %i[ show edit update destroy ]
+
+  def new
+    @result = Exercice.friendly.find(params[:exercice_id]).build_result()
+  end
+    
+  def create
+    @result = Result.new(result_params.merge({user: current_user}))
+    redirect_to course_path(@result.exercice.course) and return if @result.save
+    render :new
+  end
+
 
   # GET /results or /results.json
   def index
@@ -10,28 +22,9 @@ class ResultsController < ApplicationController
   def show
   end
 
-  # GET /results/new
-  def new
-    @result = Result.new
-  end
 
   # GET /results/1/edit
   def edit
-  end
-
-  # POST /results or /results.json
-  def create
-    @result = Result.new(result_params)
-
-    respond_to do |format|
-      if @result.save
-        format.html { redirect_to result_url(@result), notice: "Result was successfully created." }
-        format.json { render :show, status: :created, location: @result }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @result.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /results/1 or /results/1.json
@@ -65,6 +58,6 @@ class ResultsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def result_params
-      params.require(:result).permit(:user_id, :exercice_id)
+      params.require(:result).permit(:user_id, :exercice_id, answered_questions_attributes: [:answer_id, :question_id])
     end
 end

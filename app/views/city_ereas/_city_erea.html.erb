@@ -1,22 +1,56 @@
-<div id="<%= dom_id city_erea %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= city_erea.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= city_erea.slug %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= city_erea.user_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this city erea", city_erea, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this city erea', edit_city_erea_path(city_erea), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div >
+<!-- component -->
+<section class="antialiased bg-gray-100 text-gray-600 h-screen px-4">
+    <div class="flex flex-col justify-center h-full">
+        <!-- Table -->
+        <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+            <header class="px-5 py-4 border-b border-gray-100">
+                <h2 class="font-semibold text-gray-800"><%= link_to 'Add City', new_city_erea_path, class:"button is-info rounded-md" %>  | <%= link_to 'Retour', root_path , class:"button is-danger rounded-md" %></h2>
+            </header>
+            <div class="p-3">
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full">
+                        <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                            <tr>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Titre</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">URL</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Modifier</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Supprimer</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm  divide-gray-100">
+                        <% @city_ereas.each do |city| %>
+                            <tr>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"></div>
+                                        <div class="font-medium text-gray-800"><%= city.title %></div>
+                                    </div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left"><%= link_to 'URL', city %></div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left font-medium text-green-500"><%= link_to 'Editer', edit_city_erea_path(city) %></div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-lg text-center"><%= link_to 'Supprimer', city, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                                </td>
+                            </tr>
+                        <% end %> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </div>

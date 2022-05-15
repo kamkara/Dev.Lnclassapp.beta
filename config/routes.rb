@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  resources :results
-  resources :answers
-  resources :questions
-  resources :exercices
+  
   get 'dashboard/home'
   get 'dashboard/index'
  
@@ -26,8 +23,12 @@ Rails.application.routes.draw do
 
   resources :materials, except: %i[new]
   resources :levels, except: %i[new]
-  resources :city_ereas, except: %i[new]
+  resources :city_ereas
   resources :courses, except: %i[show index new]
+  resources :results
+  resources :answers
+  resources :questions
+  resources :exercices
   
   ######### USER DATA #########
   devise_scope :user do

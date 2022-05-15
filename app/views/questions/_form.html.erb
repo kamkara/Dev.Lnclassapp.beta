@@ -1,37 +1,43 @@
-<%= form_with(model: question, class: "contents") do |form| %>
-  <% if question.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-      <ul>
-        <% question.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="columns card bg-gray-50">
+    <div class="column py-5 is-three-fifths">
+        <!-- feed material -->
+        <%= form_for [@exercice, @question] do |f| %>
+        <div class="border rounded-md  p-2">
+                
+            <div class="mt-8">
+                <%= render 'shared/validation_errors', :record => @question %>
+                <%= render "layouts/shared/flash/notices" %>
+            </div>
+            <%= f.hidden_field :exercice_id, value: @exercice.id %>
+                    
+            <%= f.rich_text_area :content, placeholder: "> le contenu ...", class:"ln--field " %>
+            <div class="my-2">
+                <!-- render questions -->
+                <%= render 'answer_fields', :f => f %>
+            </div>
+            <div class="mt-4">
+                <%= f.rich_text_area :answer, placeholder: "> Explication ...", class:"ln--field bg-white" %>
+            </div>
+                        
+            <div class="">
+                <%= f.submit "Question Suivante", class:"button is-info p-2 rounded-md my-8" %>
+            </div>
+        </div>
         <% end %>
-      </ul>
     </div>
-  <% end %>
+    <div class="md:column ">
+    <!-- feed course -->
+        <div class="questions-column mt-8">
+        
+            <% if @exercice.questions.any? %>
+                <div class="my-2">
+                    <%= render 'added_questions', record: @exercice %>
+                </div>
+            <% else %>
+                <p>Ajouter les questions!</p>
+            <% end %>
+        </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :content %>
-    <%= form.text_area :content, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :anwser %>
-    <%= form.text_field :anwser, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :exercice_id %>
-    <%= form.text_field :exercice_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
-<% end %>
+</div>

@@ -1,7 +1,9 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New question</h1>
+<% @title="Ajoute Questions" %>
+  <div class="mx-auto">
+    <div class="row bg-light rounded-md">
 
-  <%= render "form", question: @question %>
-
-  <%= link_to 'Back to questions', questions_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
+    <h1 class="font-bold text-4xl">Nouvelle question</h1>
+      <!-- main feed -->
+      <%= render "form", question: @question %>
+    </div>
+  </div>

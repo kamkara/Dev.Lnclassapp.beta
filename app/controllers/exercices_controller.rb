@@ -1,4 +1,5 @@
 class ExercicesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_exercice, only: %i[ show edit update destroy ]
 
   # GET /exercices or /exercices.json
@@ -12,7 +13,8 @@ class ExercicesController < ApplicationController
 
   # GET /exercices/new
   def new
-    @exercice = Exercice.new
+   @findCourse = Course.friendly.find(params[:course_id])
+    @exercice = @findCourse.exercices.build()
   end
 
   # GET /exercices/1/edit
@@ -21,19 +23,19 @@ class ExercicesController < ApplicationController
 
   # POST /exercices or /exercices.json
   def create
-    @exercice = Exercice.new(exercice_params)
-
-    respond_to do |format|
-      if @exercice.save
-        format.html { redirect_to exercice_url(@exercice), notice: "Exercice was successfully created." }
-        format.json { render :show, status: :created, location: @exercice }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @exercice.errors, status: :unprocessable_entity }
-      end
-    end
+    @exercice = current_user.exercices.build(exercice_params)
+    redirect_to new_exercice_question_path(@exercice) and return if @exercice.save
+    render :new
   end
 
+  
+  def publish
+    @exercice = Exercice.friendly.find(params[:id])
+    redirect_to feeds_path and return if @exercice.update(published: true)
+        
+    flash.notice << [@exercice.errors.full_messages]
+    redirect_back fallback_location: "/"
+  end
   # PATCH/PUT /exercices/1 or /exercices/1.json
   def update
     respond_to do |format|
@@ -60,7 +62,7 @@ class ExercicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exercice
-      @exercice = Exercice.find(params[:id])
+      @exercice = Exercice.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

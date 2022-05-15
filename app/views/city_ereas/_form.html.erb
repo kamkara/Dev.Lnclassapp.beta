@@ -1,4 +1,4 @@
-<%= form_with(model: city_erea, class: "contents") do |form| %>
+<%= form_with(model: city_erea, class: "contents") do |f| %>
   <% if city_erea.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(city_erea.errors.count, "error") %> prohibited this city_erea from being saved:</h2>
@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= f.label :"Ville ..." %>
+    <%= f.text_field :title, class: "input rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder:"la ville ..." %>
   </div>
 
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= f.submit "Créer la ville", class: "button is-info rounded" %>
   </div>
 <% end %>

@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   
   def index
     @FeedCourses = Course.all.order('created_at desc')
-    @FeedExercices  =  Course.all
+    @FeedExercices  =  Exercice.all
   end
 
   def team

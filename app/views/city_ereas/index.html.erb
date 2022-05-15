@@ -2,13 +2,65 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">City ereas</h1>
-    <%= link_to 'New city erea', new_city_erea_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="city_ereas" class="min-w-full">
-    <%= render @city_ereas %>
-  </div>
+ <div >
+<!-- component -->
+<section class="antialiased bg-gray-100 text-gray-600 h-screen px-4">
+    <div class="flex flex-col justify-center h-full">
+        <!-- Table -->
+        <div class="w-full  mx-auto bg-white border border-gray-200">
+            <header class="px-5 py-4 border-b border-gray-100">
+                <h4 class="font-semibold text-gray-800">
+                 <%= link_to sanitize("&larr; retour"), root_path, class:"button is-danger  rounded-md" %> 
+                <%= link_to 'Nouvelle Ville', new_city_erea_path, class:"button is-info rounded-md" %>
+                </h4>
+            </header>
+            <div class="">
+                <div class="overflow-x-auto">
+                    <table class="table-auto " id='city_table_scoll'>
+                        <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                            <tr>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Nom</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Nb Ecoles</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Nb Eleves</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Supprimer</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm  divide-gray-100">
+                        <% @city_ereas.each do |city| %>
+                            <tr>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"></div>
+                                        <div class="font-medium text-gray-800"><%= city.title %></div>
+                                    </div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left"><%= city.slug %></div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left font-medium text-green-500"><%= link_to 'Editer', edit_city_erea_path(city) %></div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-lg text-center"><%= link_to 'Supprimer', city, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                                </td>
+                            </tr>
+                        <% end %> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </div>
+</div>
+
+

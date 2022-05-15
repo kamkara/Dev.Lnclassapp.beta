@@ -1,4 +1,5 @@
-<div id="<%= dom_id course %>">
+<div id="<%= dom_id course %>" class="border rounded-md p-2 m-2 bg-white">
+
   <p class="my-5">
     <strong class="block font-medium mb-1">Title:</strong>
     <%= course.title %>
@@ -19,29 +20,11 @@
     <%= course.material_name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Teach name:</strong>
-    <%= course.teach_name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Slug:</strong>
-    <%= course.slug %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Contentimg:</strong>
-    <%= course.contentImg %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= course.user_id %>
-  </p>
+ 
 
   <% if action_name != "show" %>
     <%= link_to "Show this course", course, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this course', edit_course_path(course), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    
   <% end %>
 </div>
