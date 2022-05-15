@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'dashboard/home'
-  get 'dashboard/index'
- 
   root to:'homepage#index'
   get "feed", to:'home#index'
   get "t", to:'home#team'
@@ -20,7 +17,6 @@ Rails.application.routes.draw do
   get "new-levels", to:"levels#new"
   get "dashboard", to:'admin#index'
   
-
 
   resources :courses do
     resources :exercices, only: [:new, :create, :show, :index]

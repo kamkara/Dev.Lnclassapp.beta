@@ -1,17 +1,16 @@
 class Result < ApplicationRecord
+
+  ####### relations #######
   belongs_to :user
   belongs_to :exercice
-
   has_many :answered_questions, dependent: :destroy
   has_many :questions, through: :answered_questions
   has_many :answers, through: :answered_questions
+  validates_with ResultValidator
 
   accepts_nested_attributes_for :answered_questions
     
-  # a user may only have one result for a given quiz
-  validates_with ResultValidator
-
-
+############ Grade #############
   def grade
     correct = answers.where(correct: true).count
     percentage = (correct.to_f / answers.count.to_f) * 100

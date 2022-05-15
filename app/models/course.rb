@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  ################## RELATIONS  ###############
   belongs_to :user
   has_many :exercices, dependent: :destroy
   has_rich_text :content
@@ -8,10 +9,12 @@ class Course < ApplicationRecord
   Course.all.with_rich_text_content_and_embeds # Preload both body and attachments.
 
 
-  ################## SLUG ###############
+  ################## validates ###############
   validates :title, :content, :level_name, :material_name,
-            :user_id, :slug, presence: true
-
+  :user_id, :slug, presence: true
+  
+  
+  ################## Slug ###############
   def slugged_custom
     #Apprendre-a-calculer-les-limites-math-tleD
     "#{title} #{material_name} #{level_name}"

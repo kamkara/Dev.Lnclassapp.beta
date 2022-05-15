@@ -1,7 +1,11 @@
 class Material < ApplicationRecord
   belongs_to :user
 
-   ################## SLUG ###############
+  ################## Validations ###############
+  validates :title, :user_id, :slug, presence: true
+
+  
+  ################## SLUG ###############
     extend FriendlyId
     friendly_id :title, use: :slugged
     

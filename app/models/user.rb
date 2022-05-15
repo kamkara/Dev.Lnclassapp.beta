@@ -27,32 +27,41 @@ class User < ApplicationRecord
   before_validation :user_student?
   before_validation :user_teacher?
   before_validation :user_team?
-  
-  ################## BEFORE SAVE  #########
+  validates :full_name,presence: true,
+            format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ },
+            length: { minimum:5, maximum: 30,
+            message: "%{value} verifier votre nom complet"}
+                
+  validates :contact, uniqueness: true, numericality: { only_integer: true }, length: { minimum:10,
+            message: "%{ value} verifier votre nom numéro est 10 chiffres"}
+                  
+  validates :first_name, :last_name, :full_name, :email, :password,
+            :contact, :status, :city_name, :school_name, :gender, :terms, presence: true
+                  
+  validates :status, inclusion: { in: %w(Student Teacher Team),
+            message: "%{value} acces non identifier" }
+
+
+
+  ################## BEFORE Validatoins  #########
   before_validation do
     self.contact            = contact.strip.squeeze(" ")
-    self.matricule            = matricule.strip.squeeze(" ")
+    self.matricule          = matricule.strip.squeeze(" ")
     self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
     self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
   end
 
+  ################## BEFORE SAVE  #########
+  before_save do
+    self.contact            = contact.strip.squeeze(" ")
+    self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
+    self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
+    self.matricule    = matricule.strip.squeeze(" ")
+  end
   
-  validates :full_name,presence: true,
-              format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ },
-              length: { minimum:5, maximum: 30,
-              message: "%{value} verifier votre nom complet"}
 
-  validates :contact, uniqueness: true, numericality: { only_integer: true }, length: { minimum:10,
-              message: "%{ value} verifier votre nom numéro est 10 chiffres"}
-       
-    
-   ############# CUSTOMIZE ###############
+  ############# CUSTOMIZE ###############
    #Validate the data presente before all
-   validates :first_name, :last_name, :full_name, :email, :password,
-   :contact, :status, :city_name, :school_name, :gender, :terms, presence: true
-   
-   validates :status, inclusion: { in: %w(Student Teacher Team),
-    message: "%{value} acces non identifier" }
   #def user_data_present?
   #end
 
@@ -87,6 +96,8 @@ class User < ApplicationRecord
     end
   end
 
+
+  ###################  Slug ##############
   def full_name
     self.full_name = "#{self.first_name} #{self.last_name}" 
   end  

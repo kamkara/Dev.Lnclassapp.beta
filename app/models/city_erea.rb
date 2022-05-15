@@ -1,6 +1,9 @@
 class CityErea < ApplicationRecord
   belongs_to :user
   
+  ################## Validations ###############
+  validates :title, :user_id, :slug, presence: true
+
    ################## SLUG ###############
     extend FriendlyId
     friendly_id :title, use: :slugged
