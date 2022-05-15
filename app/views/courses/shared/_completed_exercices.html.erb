@@ -1,11 +1,12 @@
-<div class="card rounded-md">
-    <div class="mb-2 font-semibold bg-gray-100">
-    <header class=""><%= q.name %></header>
+<div class="border rounded-md">
+    <div class="bg-gray-100 p-2">
+    <h2 class="font-semibold"><%= q.name %></ph2>
     </div>
-    <div class="flex place-items-center">
-        <p class="mx-2">Taux: <%= q.user_grade(current_user) %></p>
-        
-        <%= link_to "Reprend", new_exercice_result_path(q), class: "text-black"%>
-    </div>
-        
+
+    <div class="flex flex-col items-start justify-start gap-6">
+        <div class="flex flex-row">Comprit a: <%= q.user_grade(current_user) %></div>
+        <div class="flex flex-row"><%= link_to "Reprend", new_exercice_result_path(q), class: "inline_block text-black"%></div>
+    </div> 
+   
 </div>
+        

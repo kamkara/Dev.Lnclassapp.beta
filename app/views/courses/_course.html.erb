@@ -1,24 +1,21 @@
-<div id="<%= dom_id course %>">
-<!-- course title-->
-  <div class=" my-5 font-semibold  text-2xl">
-    <%= course.title %>
-  </div>
-
-  <div class="border rounded-md p-2 bg-white mb-5">
-  <!-- course content-->
-    <%= course.content %>
-  
-  </div>
-<!-- render exercices-->
-  <!-- Add exercices list for medium--->
-    <div class="card mt-2">
-      <div class="m-2">
-      <p class="font-bold text-md "> Exercices</p>
-      <%= render partial: "courses/shared/exercices", locals: {course: @course} %>
+<div id="<%= dom_id course %>" class="mt-5 border p-2 bg-white">
+    <!-- course title-->
+    <div class="font-semibold m-2 text-2xl">
+      <%= course.title %>
     </div>
-
+    <div class="border rounded-md p-2">
+    <!-- course content-->
+      <%= course.content %>
+    </div>
+    <!-- render exercices-->
   
-    
+  
+  <!-- Add exercices list for medium--->
+  <div class="m-2">
+    <p class="font-bold text-xl mb-2"> Les exercices</p>
+    <%= render partial: "courses/shared/exercices", locals: {course: @course} %>
+  </div>
+
   <% if action_name != "show" %>
     <%= link_to "Show this course", course, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this course', edit_course_path(course), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>

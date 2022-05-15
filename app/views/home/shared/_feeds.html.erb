@@ -1,5 +1,5 @@
 <% @FeedCourses.each do |c| %>
-    <div class="bg-white border p-2 rounded-md mb-2">
+    <div class="bg-white border p-2 mb-2">
         <h2 class="font-semibold text-xl" >
             <%= c.title %>
         </h2>
@@ -8,13 +8,12 @@
             <div class="p-2">
                 <%= link_to course_path(c), class:"hover:text-black text-black no-underline" do %>
               <%= truncate(strip_tags(c.content.to_s.html_safe), length: 400)%>
-              <span class="bg-blue-300 rounded-md" id=start-reading><i class="mx-2">Continuez la lecture ...</i></span>
+              <span class="bg-blue-300" id=start-reading><i class="mx-2">Continuez la lecture ...</i></span>
             <% end %>
             </div>
             <!-- Feed Bar-->
-            <div class="card border-t border-t-4">
-               <div class="flex place-items-center font-semibold py-2">
-               
+            <div class=" border-t-4">
+                <div class="flex place-items-center font-semibold py-2">
                     <div class="flex place-items-end mx-4">
                         <div class=" text-sm">
                         <% if @FeedExercices.where("course_id = ?", c.id).count == 0 %>
@@ -24,9 +23,6 @@
                         <% else %>
                             <p class=""> <%= @FeedExercices.where("course_id = ?", c.id).count %> Exercices</p>
                         <% end %>
-                    </div>
-                    <div class="text-sm">
-                       
                     </div>
                     </div>
                 </div>
