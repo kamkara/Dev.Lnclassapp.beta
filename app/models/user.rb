@@ -131,8 +131,6 @@ class User < ApplicationRecord
   def should_generate_new_friendly_id?
     full_name_changed?
   end
-
-  
     
   ################## Logged params  #########
 
