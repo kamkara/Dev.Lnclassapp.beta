@@ -1,5 +1,15 @@
 <%= form_with(model: course, class: "contents") do |f| %>
-  
+  <% if course.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+        <% course.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="">
     <label class="label">Titre:</label>
@@ -12,7 +22,7 @@
   <div class="">
     <label class="label">Contenu:</label>
     <div class="my-5">
-      <%= f.rich_text_area :content, row:4, placeholder:"Contenu ...", class: "block rounded-md border border-gray-200 bg-white px-3 py-2 mt-2 w-full" %>
+      <%= f.rich_text_area :content, placeholder:"Contenu ...", class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
   </div>
 

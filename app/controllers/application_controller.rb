@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     #After sign in
     def after_sign_in_path_for(resource)
       if current_user
+        flash[:success] = " SignIn Bienvenu(e) sur la plateforme Lnclass."
         feed_path
       else
         root_path
@@ -21,6 +22,7 @@ class ApplicationController < ActionController::Base
     def after_sign_up_path_for(resource)
       if user_signed_in
         feed_path
+         flash[:success] = "Bienvenu(e) sur la plateforme Lnclass."
       else
         root_path
       end

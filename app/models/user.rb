@@ -11,9 +11,9 @@ class User < ApplicationRecord
   has_many :materials
   has_many :city_ereas
   has_many :courses
-  #has_many :exercices
-  #has_many :questions
-  #has_many :results
+  has_many :exercices
+  has_many :questions
+  has_many :results
 
 
 

@@ -1,0 +1,11 @@
+<div class="card rounded-md">
+    <div class="mb-2 font-semibold bg-gray-100">
+    <header class=""><%= q.name %></header>
+    </div>
+    <div class="flex place-items-center">
+        <p class="mx-2">Taux: <%= q.user_grade(current_user) %></p>
+        
+        <%= link_to "Reprend", new_exercice_result_path(q), class: "text-black"%>
+    </div>
+        
+</div>

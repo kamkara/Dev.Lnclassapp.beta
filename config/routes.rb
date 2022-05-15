@@ -21,10 +21,26 @@ Rails.application.routes.draw do
   get "dashboard", to:'admin#index'
   
 
-  resources :materials, except: %i[new]
-  resources :levels, except: %i[new]
+
+  resources :courses do
+    resources :exercices, only: [:new, :create, :show, :index]
+    get "exercices", to:"exercices#index"
+    post '/publish', to: 'exercices#publish'
+  end
+  
+  
+  resources :exercices, except: [:new, :show, :edit, :create, :update, :destroy, :index] do
+    member do
+      delete 'delete', to: 'exercices#destroy'
+    end
+    resources :questions, only: [:new, :create, :destroy]
+    resources :results, only: [:new, :create]
+  end
+
+  resources :materials
+  resources :levels
   resources :city_ereas
-  resources :courses, except: %i[show index new]
+  resources :courses
   resources :results
   resources :answers
   resources :questions

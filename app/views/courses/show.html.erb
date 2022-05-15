@@ -1,4 +1,8 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+
+<%= render "home/shared/navbar" %> 
+
+<% @title= "S'exercicer" %>
+<div class="mx-auto md:w-2/3 w-full flex mt-20">
   <div class="mx-auto">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
@@ -6,10 +10,13 @@
 
     <%= render @course %>
 
-    <%= link_to 'Edit this course', edit_course_path(@course), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this course', course_path(@course), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to 'Back to courses', courses_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% if currentUserStatus?(current_user) === ":team?" %>
+          <%= link_to 'Edite léçon', edit_course_path(@course), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+          <%= link_to 'Exercices', new_course_exercice_path(@course), class:"mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %> 
+          <div class="inline-block ml-2">
+            <%= button_to 'Supprimer', course_path(@course), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+          </div>
+
+      <% end %>
   </div>
 </div>
