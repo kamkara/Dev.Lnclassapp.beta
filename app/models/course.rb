@@ -1,14 +1,12 @@
 class Course < ApplicationRecord
   belongs_to :user
-  has_many :exercices, dependent: :destroy
+  #has_many :exercices, dependent: :destroy
   has_rich_text :content
 
   ################## FIX N+1  ###############
   Course.all.with_rich_text_content # Preload the body without attachments.
   Course.all.with_rich_text_content_and_embeds # Preload both body and attachments.
 
-  self.ignored_columns = ["material_id"]
-  #RICH_TEXTT EDITOR
 
   ################## SLUG ###############
   validates :title, :content, :level_name, :material_name,

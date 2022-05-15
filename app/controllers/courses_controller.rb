@@ -1,8 +1,7 @@
 class CoursesController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :find_levels, :find_materials
   before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :find_levels, :find_materials
 
   # GET /courses or /courses.json
   def index
@@ -79,6 +78,6 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:title, :content, :level_name,
                                     :material_name, :teach_name, :slug,
-                                     :contentImg, :user_id)
+                                     :user_id, contentImg: [])
     end
 end

@@ -15,16 +15,7 @@
             <div class="card border-t border-t-4">
                <div class="flex place-items-center font-semibold py-2">
                
-                    <div class="flex place-items-end mx-4">
-                        <div class=" text-sm">
-                        <% if @FeedExercices.where("course_id = ?", c.id).count == 0 %>
-                            <p class="">Pas d'exercice</p>
-                        <% elsif @FeedExercices.where("course_id = ?", c.id).count == 1 %>
-                            <p class=""> 1 exercice</p>
-                        <% else %>
-                            <p class=""> <%= @FeedExercices.where("course_id = ?", c.id).count %> Exercices</p>
-                        <% end %>
-                    </div>
+                    
                     <div class="text-sm">
                        
                     </div>
