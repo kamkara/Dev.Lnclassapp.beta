@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :results
+  resources :answers
+  resources :questions
+  resources :exercices
   get 'dashboard/home'
   get 'dashboard/index'
  
