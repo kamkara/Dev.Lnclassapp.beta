@@ -3,6 +3,10 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 
+// richtext import
+import "trix"
+import "@rails/actiontext"
+
 
 
 // function to navbar
@@ -112,5 +116,4 @@ import * as bootstrap from "bootstrap"
   document.querySelector(".back-to-top").onclick = () => {
     scrollTo(document.documentElement);
   };
-})();import "trix"
-import "@rails/actiontext"
+})();

@@ -1,5 +1,5 @@
 
-  <%= form_for @result, url: exercice_results_path(@result.exercice) do |f| %>
+  <%= form_for(@result, url: exercice_results_path(@result.exercice)) do |f| %>
     <div class="card">
         <%= render 'shared/validation_errors', :record => @result %>
         <%= f.hidden_field :exercice_id %>

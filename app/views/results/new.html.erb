@@ -1,6 +1,10 @@
-<div class="mx-auto">
- <div class="">
-    <p><%= @result.exercice.name %></p>
+
+
+<%= render "home/shared/navbar" %> 
+<% @title= "Exploiter sujet" %>
+<div class="w-full mx-auto md:w-2/3 mt-12 ">
+    <p class="mt-6"><%= @result.exercice.name %></p>
+  <div class="mx-auto">
     <%= render "form", result: @result %>
-</div>
+  </div>
 </div>
