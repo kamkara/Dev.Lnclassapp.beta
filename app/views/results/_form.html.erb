@@ -1,22 +1,23 @@
 
-  <%= form_for(@result, url: exercice_results_path(@result.exercice)) do |f| %>
-    <div class="card">
-        <%= render 'shared/validation_errors', :record => @result %>
-        <%= f.hidden_field :exercice_id %>
-        <ol>
-          <%= f.fields_for :answered_questions do |aq| %>
-            <li>
-              <%= aq.hidden_field :question_id %>
-              <p><%= aq.object.question.content %></p>
-              <%= aq.collection_radio_buttons( :answer_id, aq.object.question.answers, :id, :content) do |b| %>
-                <div class="border rounded-md p-2 my-2">
-                  <%= b.radio_button %>
-                  <%= b.label %>
-                </div>
-              <% end %>
-            </li>
-          <% end %>
-        </ol>
-        <%= f.submit "Je vérifie", class:" button is-info rounded-md p-2 bg-blue-400 text-white font-semibold mb-10" %>
-    </div>
+<%= form_for(@result, url: exercice_results_path(@result.exercice)) do |f| %>
+  <%= render 'shared/validation_errors', :record => @result %>
+    <%= f.hidden_field :exercice_id %>
+      <ol class="text-black">
+        <%= f.fields_for :answered_questions do |aq| %>
+          <li>
+            <%= aq.hidden_field :question_id %>
+
+            <div class="border bg-gray-200 p-2 text-black">
+              <%= aq.object.question.content %>
+            </div>
+            <%= aq.collection_radio_buttons( :answer_id, aq.object.question.answers, :id, :content) do |b| %>
+              <div class="border p-2 my-2">
+                <%= b.radio_button %>
+                <%= b.label %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ol>
+    <%= f.submit "Vérifions l'exercice", class:" button is-info rounded-md p-2 text-white font-semibold" %>
   <% end %>
