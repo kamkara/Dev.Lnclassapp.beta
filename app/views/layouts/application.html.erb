@@ -26,13 +26,14 @@
   </head>
 
   <body class="bg-gray-200">
-      <%= yield %>  
     <%= render "layouts/shared/flash/notices" %>
+      <%= yield %>  
   </body>
 
 
 
-<script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <script>
         const setup = () => {
             return {
