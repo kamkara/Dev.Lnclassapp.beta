@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get "mission", to:'compagny#mission'
+  get "cgu", to:'compagny#terms'
+  get "data", to:'compagny#data'
+  get 'compagny/membership'
   
   root to:'homepage#index'
   get "feed", to:'home#index'

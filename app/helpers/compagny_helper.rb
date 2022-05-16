@@ -1,0 +1,2 @@
+module CompagnyHelper
+end
