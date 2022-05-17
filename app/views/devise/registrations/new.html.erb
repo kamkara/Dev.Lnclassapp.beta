@@ -1,14 +1,18 @@
 <% @title="Inscription" %>
-<div class="bg-blue-400 py-10 ">
-  <div class="md:mx-60 bg-white rounded-md">
-  <div class="card">
-    <div class="card-header shadow-none">
-    <h4 class="bold-semibold Text-base ">Bienvenue au Prépa Bac Bachelier(e)</h4>
+
+<!-- component -->
+<!-- This is an example component -->
+<div class="max-w-2xl mx-auto bg-white my-2 p-2">
+<div class="bg-white ">
+  <div class="border">
+    <div class="border bg-gray-200 max-w-2xl  rounded-md-b">
+      <h4 class="font-bold mx-auto text-2xl ">Bienvenue Sur Lnclass Prépa Bac 2022 </h4>
     </div>
-    
-    <p class="mx-auto text-normal">
-    Remplir ces champs et commence ton Prépa BAC Maintenant. <br>
-    Tu es sur la bonne voie vers ton Bac 2022.
+     
+    <p class="mx-auto text-black p-2">
+      Inscrivez-vous en remplissant ces champs correctement et <br>
+      commencez votre Prépa Bac Maintenant. <br>
+      <i class="">Vous êtes sur la bonne voie vers le Bac 2022.</i>
     </p>
   </div>
 
@@ -53,12 +57,12 @@
           
         <!-- City && Serie name -->
         <div class="field is-horizontal">
-        <!-- City  name -->
+          <!-- City  name -->
           <div class="field-body">
             <div class="field is-narrow">
               <div class="control">
-              <label class="label">Ville :</label>
-                <div class=" is-fullwidth mb-4">
+                <label class="label">Ville :</label>
+                <div class="select is-fullwidth mb-4">
                   <%= f.select :city_name, @city_ereas.map{|city_erea| [city_erea.title]},
                                     help:"Selectionne la ville de fréquentation ...", class:" rounded-md",  hide_label:true %>
                 </div>
@@ -66,12 +70,12 @@
             </div>
           </div>
 
-        <!-- Level  name -->
+          <!-- Level  name -->
           <div class="field-body">
             <div class="field is-narrow">
               <div class="control">
               <label class="label">Série :</label>
-                <div class=" is-fullwidth">
+                <div class="select is-fullwidth">
                   <%= f.select :level_name, @levels.map{|level| [level.title]},
                                   help:"Série A1 , A2 ou D ...", class:" rounded-md",  hide_label:true %>
                 </div>
@@ -79,10 +83,8 @@
             </div>
           </div>
         </div>
-        
           <!-- Role -->
           <%= f.hidden_field :status, value:"Student" %>
-
           <!-- N° matricule -->
           <div class="mb-2">
             <label class="label">Etablissement:</label>
@@ -99,17 +101,13 @@
         
          <div class="mb-4">
             <%= f.check_box :terms, checked: true %>
-              Décochez cette case pour si vous n'acceptez nos <%= link_to "conditions d'utilisation", "#", class:"no-underline font-semibold" %>  et notre <%= link_to "politique de confidentialité", "#", class:"font-semibold" %> 
-            
+              Décochez cette case si vous n'acceptez nos <%= link_to "conditions d'utilisation", "#", class:"no-underline font-semibold" %>  et notre <%= link_to "politique de confidentialité", "#", class:"font-semibold" %> 
          </div>
-          
-
           <div class="actions">
             <%= f.submit "Terminer L'Inscription" , class:"button is-info" %>
           </div>
-
-      </div>
-    <% end %>
-      
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
