@@ -4,7 +4,7 @@
           <div class="w-full px-4">
             <div class="mb-12 lg:mb-20 max-w-[620px]">
               <span class="font-semibold text-lg text-primary mb-2 block">
-                Notre Mission
+                Notre Mission et comment ça marche?
               </span>
               <h2
                 class=" font-bold text-3xl sm:text-4xl md:text-[42px] text-dark mb-4">
@@ -13,11 +13,12 @@
               <p class=" text-lg sm:text-xl leading-relaxed sm:leading-relaxed text-body-color">
                 Le Bac n'est pas que les matières spécifiques, mais c'est toutes les matières.
                   <br />
-                Pour cette raison nous préparons les élèves en Math - Physique-chimie - SVT - Histoire-Géo - Philo - Français - All/Esp pour les séries littéraire.
+                Pour cette raison, nous préparons les élèves en Math - Physique-chimie - SVT - Histoire-Géo - Philo - Français - All/Esp.
                 </p>
             </div>
           </div>
         </div>
+        <h2 class=" font-bold text-3xl sm:text-4xl md:text-[42px] text-dark mb-4"> Comment la plateforme marche?</h2>
         <div class="flex flex-wrap -mx-4">
           <div class="w-full md:w-1/2 lg:w-1/4 px-4">
             <div class="bg-white mb-12 group wow fadeInUp" data-wow-delay=".1s">
@@ -32,14 +33,16 @@
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                Résumé des léçons
+              <h4 class="ln-step-title">
+                Choisir la matière
               </h4>
-              <p class="text-body-color mb-8 lg:mb-11">
-                Pour gagner du temps pour chacun
-              </p>
-              <%= link_to " crée ton compte", new_user_registration_path,
-               class:"font-medium text-base text-body-color hover:text-primary"%>
+              <div class="m-2">
+                <p class="text-black">
+                  Choisir le sujet de Bac que veux traiter, <br> cliquez sur TRAITEZ LE SUJET
+                </p>
+                <%= link_to "Inscrire toi au prépa", new_user_registration_path,
+                class:"ln-step-signUp "%>
+              </div>
             </div>
           </div>
           <div class="w-full md:w-1/2 lg:w-1/4 px-4">
@@ -64,14 +67,16 @@
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                Notions importantes
+              <h4 class="ln-step-title">
+                Correction Guidée
               </h4>
-              <p class="text-body-color mb-8 lg:mb-11">
-               Les notions importantes des léçons directement pour vous
-              </p>
-              <%= link_to "crée ton compte", new_user_registration_path,
-               class:"font-medium text-base text-body-color hover:text-primary"%>
+              <div class="m-2">
+                <p class="text-black">
+                Les exercices sont proposés avec une corréction guidée, pour éviter d'etre bloqué
+                </p>
+                <%= link_to "Inscrire toi au prépa", new_user_registration_path,
+                class:"ln-step-signUp"%>
+              </div>
             </div>
           </div>
           <div class="w-full md:w-1/2 lg:w-1/4 px-4">
@@ -105,14 +110,16 @@
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                Groupes d'éhange dédié
+              <h4 class="ln-step-title">
+                Prépa actif
               </h4>
-              <p class="text-body-color mb-8 lg:mb-11">
-                Apres les exercices, vous pourrez échanger sur les notions qui sont importantes vous
-              </p>
-                <%= link_to " crée ton compte", new_user_registration_path,
-               class:"font-medium text-base text-body-color hover:text-primary"%>
+              <div class="m-2">
+                <p class="text-black">
+                  Traitez les exercices par vous-meme avec les explications de la corréction guidée
+                </p>
+                  <%= link_to "Inscrire toi au prépa", new_user_registration_path,
+                class:"ln-step-signUp"%>
+              </div>
             </div>
           </div>
           <div class="w-full md:w-1/2 lg:w-1/4 px-4">
@@ -137,14 +144,20 @@
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                Sujets Bac + Corrigés
-              </h4>
-              <p class="text-body-color mb-8 lg:mb-11">
-               Plus de 100 sujets de type BAC avec leur Corrigés
-              </p>
-              <%= link_to "Crée ton compte", new_user_registration_path,
-               class:"font-medium text-base text-body-color hover:text-blue-500 "%>
+              <div class="m-2">
+                <h4 class="ln-step-title">
+                Améliore toi plus
+                </h4>
+                <div class="m-2">
+                  <p class="text-black">
+                  Chaque sujet a un groupe d'échange dédié avec 
+                  <br> des professeurs et les candidats,<br> 
+                    ils sont disponible à vous aider pour plus amélioration
+                  </p>
+                  <%= link_to "Inscrire toi au prépa", new_user_registration_path,
+                  class:" ln-step-signUp"%>
+                </div>
+              </div>
             </div>
           </div>
         </div>
