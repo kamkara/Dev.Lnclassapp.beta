@@ -30,28 +30,5 @@
       <%= yield %> 
       <!-- Put this part before </body> tag -->
 
-<div class="modal">
-  <div class="modal-box relative">
-    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 class="text-lg font-bold">Congratulations random Interner user!</h3>
-    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-  </div>
-</div> 
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-    <script>
-        const setup = () => {
-          return {
-            isSidebarOpen: false,
-            currentSidebarTab: null,
-            isSettingsPanelOpen: false,
-            isSubHeaderOpen: false,
-            watchScreen() {
-                if (window.innerWidth <= 1024) {
-                this.isSidebarOpen = false
-                }
-            },
-        }
-      }
-    </script>
   </body>
 </html>
