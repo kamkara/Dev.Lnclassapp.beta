@@ -1,11 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="description" content="<%= description %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+   
+    <!-- favico-->
+     <%= favicon_link_tag asset_path('HomePage/flavico.png') %>
+     <!-- Tailwind css -->
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+   
 
-
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    
+  </head>
 <!-- component -->
 <div>
     
-    
-    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
+    <div md:x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
         <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
     
         <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'" class="fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
