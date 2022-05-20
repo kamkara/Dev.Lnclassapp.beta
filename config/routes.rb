@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :results, only: [:new, :create]
   end
 
+  get "city-list", to:"city_ereas#index"
   resources :materials
   resources :levels
   resources :city_ereas
