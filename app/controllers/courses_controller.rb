@@ -10,6 +10,9 @@ class CoursesController < ApplicationController
 
   # GET /courses/1 or /courses/1.json
   def show
+    @FeedMaterials =  Material.all.order('created_at desc')
+    @FeedCourses = Course.all.order('created_at desc')
+    @FeedExercices  =  Exercice.all
   end
 
   # GET /courses/new

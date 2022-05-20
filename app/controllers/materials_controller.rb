@@ -13,7 +13,6 @@ class MaterialsController < ApplicationController
     #@feed_courses = Course.where("level_id = ? and material_id = ?", @current_user.level_id, @material.id).order('created_at desc') and return 
     @FeedCourses = Course.where("material_name = ?", @material.title).order('created_at desc')
     @FeedExercices  =  Exercice.all
-
   end
 
   # GET /materials/new
