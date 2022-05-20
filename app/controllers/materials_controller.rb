@@ -9,10 +9,10 @@ class MaterialsController < ApplicationController
 
   # GET /materials/1 or /materials/1.json
   def show
-    @FeedMaterials = Material.all
-    
+    @FeedMaterials = Material.all.order('created_at desc')
     #@feed_courses = Course.where("level_id = ? and material_id = ?", @current_user.level_id, @material.id).order('created_at desc') and return 
     @FeedCourses = Course.where("material_name = ?", @material.title).order('created_at desc')
+    @FeedExercices  =  Exercice.all
   end
 
   # GET /materials/new
