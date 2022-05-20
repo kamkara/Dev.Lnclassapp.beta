@@ -14,7 +14,8 @@
   <div class="">
     <label class="label">Titre:</label>
     <div class="control">
-      <%= f.text_field :title, label:"Titre ...", class: "ln--field" , placeholder:"Le titre ..." %>
+      <%= f.text_field :title, label:"Titre ...",
+       class: "ln--field" , placeholder:"Le titre ..." %>
     </div>
   </div>
 
@@ -22,7 +23,9 @@
   <div class="">
     <label class="label">Contenu:</label>
     <div class="my-5">
-      <%= f.rich_text_area :content, placeholder:"Contenu ...", class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= f.rich_text_area :content, placeholder:"Contenu ...", 
+      class: "block rounded-md border border-gray-200 outline-none 
+      px-3 py-2 mt-2 w-full" %>
     </div>
   </div>
 
@@ -31,7 +34,8 @@
       <label class="label">La Tle:</label>
       <div class="control">
         <div class="select">
-          <%= f.select :level_name, @levels.map{|level| [level.title]},  placeholder:"Tle A1 , A2 ou D ...", class:"rounded-md" %>
+          <%= f.select :level_name, @levels.map{|level| [level.title]},
+          placeholder:"Tle A1 , A2 ou D ...", class:"rounded-md" %>
         </div>
       </div>
     </div>
@@ -40,13 +44,16 @@
       <label class="label">La matière:</label>
       <div class="control">
         <div class="select">
-          <%= f.select :material_name, @materials.map{|material| [material.title]},  placeholder:"Matiere ...", class:"rounded-md" %>
+          <%= f.select :material_name, @materials.map{|material| [material.title]},
+          placeholder:"Matiere ...", class:"rounded-md" %>
         </div>
       </div>
     </div>    
   </div>
 
   <div class="inline">
-    <%= f.submit "Créer la Léçon", class: "button is-info rounded-md bg-blue-600 text-white font-medium " %>
+    <%= f.submit "Créer la Léçon", 
+    class: "button is-info rounded-md bg-blue-600
+     text-white font-medium " %>
   </div>
 <% end %>
