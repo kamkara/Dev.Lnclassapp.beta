@@ -2,7 +2,6 @@
 
   <% if blob.representable? %>
     <% if Rails.env == 'production' %>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur ex beatae rerum. Quaerat reprehenderit ad exercitationem quam. Id error distinctio consequatur aliquam, ullam quibusdam suscipit, repudiandae veritatis praesentium esse iure?
       <img class: "actiontext-image" src="https://<%= Rails.application.credentials.dig(:aws, :s3_bucket) %>.s3-<%= Rails.application.credentials.dig(:aws, :s3_region) %>.amazonaws.com/<%= blob.key %>" />
     <% else %>
       <%= image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ]), class: "actiontext-image" %>
@@ -18,3 +17,7 @@
     <% end %>
   </figcaption>
 </figure>
+
+
+<%= Rails.application.credentials.dig(:aws, :s3_bucket) %>
+<%= Rails.application.credentials.dig(:aws, :s3_region) %>
