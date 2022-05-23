@@ -3,6 +3,14 @@
     <%= image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ]) %>
   <% end %>
 
+<% if blob.representable? %>
+  <% if Rails.env == 'production' %>
+    <img class: "post-actiontext-image" src="https://<%= Rails.application.credentials.dig(:aws, :s3_bucket) %>.s3-<%= Rails.application.credentials.dig(:aws, :s3_region) %>.amazonaws.com/<%= blob.key %>" />
+  <% else %>
+    <%= image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ]), class: "post-actiontext-image" %>
+  <% end %>
+<% end %>
+
   <figcaption class="attachment__caption">
     <% if caption = blob.try(:caption) %>
       <%= caption %>
