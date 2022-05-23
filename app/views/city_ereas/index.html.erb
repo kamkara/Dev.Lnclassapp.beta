@@ -49,7 +49,7 @@
                                     <div class="text-left font-medium text-green-500"><%= link_to 'Editer', edit_city_erea_path(city) %></div>
                                 </td>
                                 <td class="p-2 whitespace-nowrap">
-                                    <div class="text-lg text-center"><%= link_to 'Supprimer', city, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                                    <div class="text-lg text-center"><%= button_to 'Supprimer', city_erea_path(city), method: :delete, data: { confirm: 'Are you sure?' } %></div>
                                 </td>
                             </tr>
                         <% end %> 
