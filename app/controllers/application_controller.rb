@@ -11,9 +11,8 @@ class ApplicationController < ActionController::Base
 
     #After sign in
     def after_sign_in_path_for(resource)
-      if current_user
-        flash[:success] = " SignIn Bienvenu(e) sur la plateforme Lnclass."
-        feed_path
+      if current_user.status == "Student"
+        welcome_path# if :urrentUserStatus? == "students"
       else
         root_path
       end
