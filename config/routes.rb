@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
+  
+
+  ####### Home page #######
+  root to:'homepage#index'
+  get "feed", to:'home#index'
+  get "t", to:'home#team'
+  
+  
+  ####### Omboarding #######
+  get "welcome", to:'welcomes#index'
+  
+  
+  ####### Egal && Data  #######
   get "mission", to:'compagny#mission'
   get "cgu", to:'compagny#terms'
   get "data", to:'compagny#data'
   get 'compagny/membership'
-  
-  root to:'homepage#index'
-  get "feed", to:'home#index'
-  get "t", to:'home#team'
   
   #Course
   get "courses-show", to:"courses#show"
@@ -20,6 +29,7 @@ Rails.application.routes.draw do
   get "new-materials", to:"materials#new"
   get "new-levels", to:"levels#new"
   get "dashboard", to:'admin#index'
+  get "city-list", to:"city_ereas#index"
   
 
   resources :courses do
@@ -37,15 +47,10 @@ Rails.application.routes.draw do
     resources :results, only: [:new, :create]
   end
 
-  get "city-list", to:"city_ereas#index"
-  resources :materials
-  resources :levels
-  resources :city_ereas
-  resources :courses
-  resources :results
-  resources :answers
-  resources :questions
-  resources :exercices
+  ###### Ressources ########
+  resources :levels, :city_ereas, :courses, :materials,
+            :results, :answers, :questions, :exercices
+  
   
   ######### USER DATA #########
   devise_scope :user do

@@ -1,0 +1,105 @@
+<!-- component -->
+<!-- This is an example component -->
+<div class="max-w-2xl mx-auto bg-white pt-16 ">
+
+	<div class="p-2">
+    <div class="grid gap-6 mb-6 lg:grid-cols-2 ">
+        <!-- welcome Message-->
+      <div class="border rounded-md p-2">
+        <h2 class="text-bold text-3xl">
+            bienvenu(e) <br class=""> 
+            sur la plateforme de <b class="">Prépa Bac</b>.
+        </h2>
+        <p class=""><%= current_user.last_name %> Votre inscription à bien été validé.</p>
+        <p class="mb-2">Pour vous montrez notre sérieux <%= current_user.last_name %>
+          <br > tu as 3 jours de prépa gratuits, alors en profite bien. 
+          <br class=""> Le Bac n'est plus loin.
+        </p>
+
+
+        <!-- welcome Remember-->
+        <div class="bg-green-200 border p-2">
+            <b class="">Petit Rappel: </b>
+            <i class="">
+            pour se connecter, Cliquez sur " <b class="">Se Connecter</b>" puis entre ton N° matricule et ton N° Whatsapp pour se connecter.
+            </i>
+        </div>
+          <hr>
+          <div class="border rounded-md-b bg-gray-200">
+            <p class="p-2">Lnclass Prépare les candidats au Bac avec des sujets de type Bac et des sujets des meilleures écoles qui font
+              généralement 100%. Si leur élèves sont adminisent,<br>
+               Toi aussi tu dois être Adminis(e).
+              </p>
+          </div>
+        </div>
+    </div>
+
+    <!-- welcome form-->
+    <div class="border rounded-t-name p-2">
+      <h2 class="mb-2 bg-gray-200 p-2 text-2xl"> <span class="font-bold underline"><%= current_user.last_name %></span> aide les professeurs à t'aider</h2>
+      <div class="">
+        <p class="">
+         La travail de <strong> Des professeurs Lnclass</strong> est de t'aider à réussi le Bac cette année.
+          </p>
+          <i class="">Si tu as des lacunes, c'est pas un problème, nous allons les corrigées en priorité. </i>
+
+          <p class="border p-2 bg-blue-200 black">Pour céla dit-nous les matières dans lesquelles tu dois t’améliorer pour réussir ton Bac?</p>
+      </div>
+
+    <!-- welcome form-->
+
+          <div class="flex items-start mb-6">
+         <%= form_with(model: @welcome) do |f| %>
+           
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :philo, id:"philo", class:"mx-2" %> <%= f.label :philo, 'Philosophie', id:"philo" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :fr, id:"fr", class:"mx-2" %> <%= f.label :fr, 'Français', id:"fr" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :hg, id:"hg", class:"mx-2" %> <%= f.label :hg, 'Histoire- Géogrpahie', id:"hg" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :pc, id:"pc", class:"mx-2" %> <%= f.label :pc, 'Physique - chimie', id:"pc" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :math, id:"math", class:"mx-2" %> <%= f.label :math, 'Math', id:"math" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :"svt", id:"svt", class:"mx-2" %> <%= f.label :svt,  'SVT', id:"svt" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :"all_esp", id:"all_esp", class:"mx-2" %> <%= f.label :all_esp,  'All/Esp', id:"all_esp" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :"ang", id:"ang", class:"mx-2" %> <%= f.label :ang,  'Anglais', id:"ang" %>
+           </div>
+
+           <div class="flex items-center m-2 mt-4">
+            <%= f.check_box :prepa_group, id:"prepa_group", class:"mx-2" %> <%= f.label :prepa %>
+           </div>
+
+          
+            <div class="w-full mt-8">
+                <label class="font-semibold leading-none ">As-tu quelques questions pour les enseignants?</label> <br>
+                <%= f.text_area :recom, 
+                  class:"w-full text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700
+                   mt-4 bg-gray-100 border rounded border-gray-200",
+                   placeholder:"tape le message ..."  %>  
+            </div>
+            <small class="mt-4">Votre réponse sera envoyé aux groupes d'enseignant pour qu'ils ciblent bien les points a amélioration</small>
+            <div class="">
+              <%= f.submit "Envoyez aux professeurs", class:"button is-info p-2" %>
+            </div>
+         <% end %>
+      </div>
+    </div> 
+    
+</div>
+
+
+</div>
+
+
+
