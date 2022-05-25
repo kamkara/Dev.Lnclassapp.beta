@@ -27,8 +27,11 @@
 
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     
-     <!-- ANALYTICS -->
-     <%= render "shared/matomo_analytics" %>
+     <% if Rails.env == 'production' %>
+     <!-- ANALYTICS PROD -->
+      <%= render "shared/matomo_analytics" %>
+     
+     <% end %>
   </head>
 
   <body class="bg-gray-200">
