@@ -1,0 +1,57 @@
+<div id="<%= dom_id welcome %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Math:</strong>
+    <%= welcome.math %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Pc:</strong>
+    <%= welcome.pc %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Svt:</strong>
+    <%= welcome.svt %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Hg:</strong>
+    <%= welcome.hg %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Fr:</strong>
+    <%= welcome.fr %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ang:</strong>
+    <%= welcome.ang %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Philo:</strong>
+    <%= welcome.philo %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">All esp:</strong>
+    <%= welcome.all_esp %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Student message:</strong>
+    <%= welcome.student_message %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= welcome.user_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this welcome", welcome, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this welcome', edit_welcome_path(welcome), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   
   ####### Omboarding #######
-  get "welcome", to:'welcomes#index'
+  get "welcome", to:'welcomes#new'
   
   
   ####### Egal && Data  #######
@@ -49,8 +49,9 @@ Rails.application.routes.draw do
 
   ###### Ressources ########
   resources :levels, :city_ereas, :courses, :materials,
-            :results, :answers, :questions, :exercices
-  
+            :results, :answers, :questions, :exercices,
+            :welcomes
+    
   
   ######### USER DATA #########
   devise_scope :user do

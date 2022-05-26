@@ -1,0 +1,45 @@
+<div class="flex items-start mb-6">
+         <%= form_with(model: @welcome) do |f| %>
+           
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :philo, id:"philo", class:"mx-2" %> <%= f.label :philo, 'Philosophie', id:"philo" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :fr, id:"fr", class:"mx-2" %> <%= f.label :fr, 'Français', id:"fr" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :hg, id:"hg", class:"mx-2" %> <%= f.label :hg, 'Histoire- Géogrpahie', id:"hg" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :pc, id:"pc", class:"mx-2" %> <%= f.label :pc, 'Physique - chimie', id:"pc" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :math, id:"math", class:"mx-2" %> <%= f.label :math, 'Math', id:"math" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :"svt", id:"svt", class:"mx-2" %> <%= f.label :svt,  'SVT', id:"svt" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :"all_esp", id:"all_esp", class:"mx-2" %> <%= f.label :all_esp,  'All/Esp', id:"all_esp" %>
+           </div>
+           <div class="flex items-center m-2 ">
+            <%= f.check_box :"ang", id:"ang", class:"mx-2" %> <%= f.label :ang,  'Anglais', id:"ang" %>
+           </div>
+
+           <div class="flex items-center m-2 mt-4">
+            <%= f.check_box :prepa_group, id:"prepa_group", class:"mx-2" %> <%= f.label :prepa , id:"prepa_group" %>
+           </div>
+
+          
+            <div class="w-full mt-8">
+                <label class="font-semibold leading-none ">As-tu quelques questions pour les enseignants?</label> <br>
+                <%= f.text_area :recom, 
+                  class:"w-full text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700
+                   mt-4 bg-gray-100 border rounded border-gray-200",
+                   placeholder:"tape le message ..."  %>  
+            </div>
+            <small class="mt-4">Votre réponse sera envoyé aux groupes d'enseignant pour qu'ils ciblent bien les points a amélioration</small>
+            <div class="">
+              <%= f.submit "Envoyez aux professeurs", class:"button is-info p-2" %>
+            </div>
+         <% end %>

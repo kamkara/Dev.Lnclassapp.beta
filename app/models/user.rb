@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :exercices
   has_many :questions
   has_many :results
+  has_many :welcomes
 
   attr_writer :logged
   #enum :status, student: "student", teacher: "teacher", team: "team", default: "student"
