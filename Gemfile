@@ -60,8 +60,10 @@ gem 'platform_sh_rails'
 gem 'unicorn', '~> 6.1', :group => :production
 gem "aws-sdk-s3", require: false
 
-
-
+############### Analytics    ############
+gem "blazer"
+gem 'active_analytics'
+gem 'crawler_detect'
 
 
 

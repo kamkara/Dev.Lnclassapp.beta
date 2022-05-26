@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-
-    #before_action :record_page_view
+ 
+  
+  before_action :record_page_view
   # Add sign up params
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  #before_action_method: require_team
   
   before_action :find_cityEreas
   before_action :find_levels
@@ -41,11 +43,10 @@ class ApplicationController < ActionController::Base
     end 
 
     private
-        def record_page_view
-        #unless request.is_crawler?
-            #ActiveAnalytics.record_request(request)
-        #end
-        end
+      def record_page_view
+        
+          ActiveAnalytics.record_request(request)
+      end
 
         def find_levels
             @levels = Level.all
@@ -58,4 +59,9 @@ class ApplicationController < ActionController::Base
         def find_cityEreas
             @city_ereas = CityErea.all
         end
+        #def require_team
+          # depending on your auth, something like...
+          #redirect_to root_path unless current_user && current_user.status == "Team"
+        #end
+
 end

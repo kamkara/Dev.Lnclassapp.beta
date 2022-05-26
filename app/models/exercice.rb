@@ -16,9 +16,6 @@ class Exercice < ApplicationRecord
   validates_with ExerciceValidator, on: :create
   validates_with PublicationValidator, on: :update
   
-
-
-
   ########### completed exercice  #########
   def completed_by(user)
     results.any? {|r| r.user == user}

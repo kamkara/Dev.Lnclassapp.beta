@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   get "cgu", to:'compagny#terms'
   get "data", to:'compagny#data'
   get 'compagny/membership'
+
+
+  ####### Analytics && Data  #######
+  authenticate :user, ->(user) { user.status == "Team" } do
+    mount Blazer::Engine, at: "blazer"
+    mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytics
+  end
   
   #Course
   get "courses-show", to:"courses#show"

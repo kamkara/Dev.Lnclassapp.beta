@@ -93,3 +93,4 @@ production:
   host: <%= ENV['LNCLASSAPP_DATABASE_HOST'] %>
   port: <%= ENV['LNCLASSAPP_DATABASE_PORT'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  
