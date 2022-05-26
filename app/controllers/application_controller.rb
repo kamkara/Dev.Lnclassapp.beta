@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
     #After sign in
     def after_sign_in_path_for(resource)
-      if current_user.status == "Student"
+      if current_user.status == "Student" && current_user.welcomes.none?
         welcome_path# if :urrentUserStatus? == "students"
       else
         root_path
