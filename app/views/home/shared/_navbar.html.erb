@@ -101,7 +101,7 @@
             </div>
             <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
               <% if currentUserStatus?(current_user) === ":team?" %>
-               <%= link_to "Dashboard", "/dashboard-admin", class:" button is-primary is-outlined mr-2 text-white" %>
+               <%= link_to "Dashboard", "/dashboard", class:" button is-primary is-outlined mr-2 text-white" %>
               <% end %>             
              
              <%= link_to 'Déconnecter', destroy_user_session_path, method: :delete, class:"button is-danger is-outlined " %>

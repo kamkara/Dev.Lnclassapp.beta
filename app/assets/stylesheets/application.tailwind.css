@@ -11,9 +11,7 @@
   .ln--field {
     @apply p-2 rounded-md block border border-gray-200 outline-none px-3  mt-2 w-full;
   }
-  .ln-admin-item-style {
-    @apply text-white hover:text-black;
-  }
+  
   .sticky {
     @apply fixed z-[9999] transition bg-white bg-opacity-80;
     backdrop-filter: blur(5px);
