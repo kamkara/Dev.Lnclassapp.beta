@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("css/admin.css");
 
 @layer components {
   .btn-primary {
