@@ -52,6 +52,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 ##################### PROJETS GEMS  ################
 
+gem "tailwindcss-rails", "~> 2.0"
 gem "devise"
 gem 'friendly_id'
 
@@ -89,5 +90,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "tailwindcss-rails", "~> 2.0"
