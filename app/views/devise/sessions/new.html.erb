@@ -1,30 +1,47 @@
-<div class="container-fluid ">
-  <div class="flex flex-wrap ">
-  <div class="m-auto card p-4 rounded-md">
-  <h2 class="mt-20">Se Connecter</h2>
+<!-- component -->
+<div class="bg-white p-5 max-w-md mx-auto rounded shadow-sm py-4 mb-4">
+    <h2 class="text-4xl px-4 ">Connectez-vous</h2>
+    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"mt-10 space-y-8") do |f| %> 
+      
+      <% if @user.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this exercice from being saved:</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :matricule %><br />
-      <%= f.text_field :logged, autofocus: true, autocomplete: "matricule", placeholder:"N° Matricule" %>
-    </div>
+          <ul>
+            <% user.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      </br>
 
-    <div class="field my-4">
-      <%= f.label :"N° WhatsApp" %><br />
-      <%= f.password_field :password, autocomplete: "current-password", placeholder:"N° WhatsApp" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="field my-2">
-        <%= f.check_box :remember_me %>
-        <%= f.label :"Toujours connecter" %>
+      <div class="items-center my-2">
+        <%= f.label :"N° Matricule" %><br />
+        <%= f.text_field :logged, autofocus: true, autocomplete: "matricule",
+        class:"w-full border  h-12 px-4 focus:outline-none", placeholder:"N° Matricule ..." %>
+        <small class="italic">Ex: 13134330p</small>
       </div>
-    <% end %>
 
-    <div class="actions mb-4">
-      <%= f.submit "Se connecter", class:"button is-info rounded-md mt-2" %>
-    </div>
-  <% end %>
-  </div>
-  </div>
+      <div class="items-center ">
+        <%= f.label :"N° WhatsApp" %><br />
+        <%= f.password_field :password, autocomplete: "current-password",
+         placeholder:"N° WhatsApp", 
+         class:"w-full border  h-12 px-4 focus:outline-none" %>
+        <small class="italic">Ex: 0759977903</small>
+      </div>
+       
+      <div>
+        <div class="flex flex-col md:flex-row md:items-center my-2 ">
+          <%= f.submit "Se Connecter a mon compte",
+              class:"button is-info text-md
+               text-white px-2 py-2 font-semibold uppercase" %>
+          
+          <p class="text-gray-400 text-sm  self-center md:self-auto mt-4 md:mt-0">
+              Si tu n'es pas inscrit au prépa, Click sur le lien pour t'inscrire d'abord: <%= link_to "Inscription au prépa Bac", new_user_registration_path, class:"font-semibold underline" %>
+            </p>
+          </div>
+        </div>
+      <% end %>
 </div>
