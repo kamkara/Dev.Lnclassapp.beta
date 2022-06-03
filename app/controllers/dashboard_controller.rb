@@ -12,8 +12,8 @@ class DashboardController < ApplicationController
 
   #Teacher dashboard
   def home
-    @LevelList = Level.AllOrderDesc
-    @MaterialList = Material.AllOrderDesc
+    @LevelList = Level.allOrderDesc
+    @MaterialList = Material.allOrderDesc
   end
 
   
