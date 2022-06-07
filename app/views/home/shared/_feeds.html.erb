@@ -1,7 +1,7 @@
 <% @FeedCourses.each do |c| %>
     <div class="bg-white border p-2 mb-2">
         <!-- Title-->
-        <h2 class="font-semibold text-xl" >  <%= c.title %> </h2>
+        <h2 class="font-semibold text-xl" > <%= link_to course_path(c) do %> <%= c.title %> <% end %></h2>
 
         <!-- Courses-->
         <div class="border rounded-md mt-2 ">
