@@ -1,0 +1,37 @@
+<% @FeedCourses.each do |c| %>
+    <div class="bg-white border p-2 mb-2">
+        <!-- Title-->
+        <h2 class="font-semibold text-xl" > <%= link_to course_path(c) do %> <%= c.title %> <% end %></h2>
+
+        <!-- Courses-->
+        <div class="border rounded-md mt-2 ">
+            <div class="p-2">
+                <%= link_to course_path(c), class:"hover:text-black text-black no-underline" do %>
+                    <%= truncate(strip_tags(c.content.to_s.html_safe), length: 400)%>
+                    <span class="bg-blue-300" id=start-reading><i class="mx-2">voir plus ...</i></span>
+                <% end %>
+            </div>
+            <!-- Feed Bar-->
+            <div class="flex border-t-4">
+                <div class="flex place-items-center font-semibold py-2">
+                    <div class="flex place-items-end mx-4">
+                        <div class=" text-sm">
+                            <% if @FeedExercices.where("course_id = ?", c.id).count == 0 %>
+                                <p class="">Pas d'exercice</p>
+                            <% elsif @FeedExercices.where("course_id = ?", c.id).count == 1 %>
+                                <div class="grid grid-cols-8 gap-2">
+                                    <div  class="col-start-1 col-end-3"> 1 exercice</div>
+                                    <div class="col-end-7 col-span-2"><%= link_to 'Traitez', course_path(c)%></div>
+                                </div>
+                            <% else %>
+                                <div  class="flex col-start-1 col-end-3"> <%= @FeedExercices.where("course_id = ?", c.id).count %> Exercices</div>
+                                <div class="flex col-end-7 col-span-2"><%= link_to 'Traitez', course_path(c)  %></div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<% end %> 

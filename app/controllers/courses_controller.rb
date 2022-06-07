@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all.order("created_at desc")
   end
+  
 
   # GET /courses/1 or /courses/1.json
   def show

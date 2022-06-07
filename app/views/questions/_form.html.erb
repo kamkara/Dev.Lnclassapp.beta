@@ -11,7 +11,7 @@
             </div>
             <%= f.hidden_field :exercice_id, value: @exercice.id %>
                     
-            <%= f.rich_text_area :content, placeholder: "> le contenu ...", class:"ln--field " %>
+            <%= f.rich_text_area :content, placeholder: "> le contenu ...", class:"ln--field bg-white" %>
             <div class="my-2">
                 <!-- render questions -->
                 <%= render 'answer_fields', :f => f %>
@@ -28,16 +28,15 @@
     </div>
     <div class="md:column ">
     <!-- feed course -->
-        <div class="questions-column mt-8">
-        
-            <% if @exercice.questions.any? %>
-                <div class="my-2">
-                    <%= render 'added_questions', record: @exercice %>
-                </div>
-            <% else %>
-                <p>Ajouter les questions!</p>
-            <% end %>
-        </div>
+    <div class="questions-column mt-8">
+        <% if @exercice.questions.any? %>
+            <div class="my-2">
+                <%= render 'added_questions', record: @exercice %>
+            </div>
+        <% else %>
+            <p>Ajouter les questions!</p>
+        <% end %>
+    </div>
     </div>
 
 </div>

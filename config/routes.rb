@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   
-
   ####### Home page #######
   root to:'homepage#index'
   get "feed", to:'home#index'
   get "t", to:'home#team'
   
+  #landing
+  
+  get "prepa", to:'page#index'
+  get "prepa-bac", to:'page#show'
   
   ####### Omboarding #######
   get "welcome", to:'welcomes#new'
@@ -28,7 +31,6 @@ Rails.application.routes.draw do
   get "courses-show", to:"courses#show"
   get "course-list", to:"courses#index"
   get "new-course", to:"courses#new"
-  
   
   #Dashboard
   get "dashboard", to:'dashboard#index'

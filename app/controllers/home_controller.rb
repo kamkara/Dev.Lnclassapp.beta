@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: %i[team]
+  before_action :authenticate_user!, except: %i[team, post]
   before_action :Enable_Level, 
                 :Enable_Material
   
@@ -9,6 +9,12 @@ class HomeController < ApplicationController
   end
 
   def team
+  end
+
+  def post
+    @FeedMaterials =  Material.all.order('created_at desc')
+    @FeedCourses = Course.all.order('created_at desc')
+    @FeedExercices  =  Exercice.all
   end
   
   private

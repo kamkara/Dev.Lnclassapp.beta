@@ -1,7 +1,7 @@
 <% record.questions.each do |q| %>
     <div class="card border rounded-md p-2 my-2">
         <div class="added-content ">
-            <h3 class="font-bold"><%= q.content %></h3>
+            <h3 class="font-bold"><%= strip_tags(q.content.to_s.html_safe) %></h3>
             <% q.answers.each do |a| %>
                 <div class="rounded bg-white my-2">
                     <p class="border rounded-md p-2   <%= " bg-green-200 font-bold" if a.correct %>">
