@@ -7,7 +7,7 @@
         <div class="border rounded-md mt-2 ">
             <div class="p-2">
                 <%= link_to course_path(c), class:"hover:text-black text-black no-underline" do %>
-                    <%= truncate(strip_tags(c.content.to_s.html_safe), length: 400)%>
+                    <%= truncate(strip_tags(c.content.to_s.html_safe), length: 400) %>
                     <span class="bg-blue-300" id=start-reading><i class="mx-2">voir plus ...</i></span>
                 <% end %>
             </div>
