@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[show]
   before_action :set_course, only: %i[ show edit update destroy ]
   before_action :find_levels, :find_materials
 
@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   def show
     @FeedMaterials =  Material.all.order('created_at desc')
     @FeedCourses = Course.all.order('created_at desc')
-    @FeedExercices  =  Exercice.all
+    #@FeedExercices  =  Exercice.all
   end
 
   # GET /courses/new

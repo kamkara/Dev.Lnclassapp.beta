@@ -1,0 +1,112 @@
+<div class="ud-header  bg-blue-500 absolute  top-0 left-0  z-40  w-full  flex  items-center" >
+      <div class="container">
+        <div class="flex -mx-4 items-center justify-between relative">
+          <div class="px-4 w-60 max-w-full">
+            <%= link_to root_path, class:"w-full header-logo" do %>
+            <p class="font-bold text-2xl md:text-4xl text-white">Lnclass</p>
+            <% end %>
+          </div>
+          <div class="flex px-4 justify-between items-center w-full">
+            <div>
+              <button
+                id="navbarToggler"
+                class=" block absolute right-4 top-1/2 -translate-y-1/2 lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg " >
+                <span
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                ></span>
+                <span
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                ></span>
+                <span
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                ></span>
+              </button>
+              <nav
+                id="navbarCollapse"
+                class=" absolute py-2 w-full right-4 top-full hidden lg:block lg:static lg:shadow-none " >
+                <ul class="block lg:flex">
+                  <li class="relative group">
+                    <%= link_to "Accueil", root_path, class:"ud-menu-scroll font-bold 
+                            lg:text-white lg:group-hover:opacity-70 lg:group-hover:text-white 
+                            group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex 
+                            mx-8 lg:mr-0" %>
+                    
+                  </li>
+                   
+                  <li class="relative group">
+                    <a
+                      href="#about"
+                      class=" d-menu-scroll font-bold 
+                            lg:text-white lg:group-hover:opacity-70 lg:group-hover:text-white 
+                            group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex 
+                            mx-8 lg:mr-0" >
+                      
+                    </a>
+                  </li>
+                  
+                  <li class="relative group">
+
+                    <%= link_to "Accéder aux groupes", "#",  class:" d-menu-scroll font-bold 
+                            lg:text-white lg:group-hover:opacity-70 lg:group-hover:text-white 
+                            group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex 
+                            mx-8 lg:mr-0" %>
+                                                  
+                  </li>
+                  <!-- 
+                  <li class="relative group">, 
+                    <a
+                      href="#team"
+                      class="
+                        ud-menu-scroll
+                        text-base text-dark
+                        lg:text-white
+                        lg:group-hover:opacity-70
+                        lg:group-hover:text-white
+                        group-hover:text-primary
+                        py-2
+                        lg:py-6 lg:inline-flex lg:px-0
+                        flex
+                        mx-8
+                        lg:mr-0 lg:ml-7
+                        xl:ml-12
+                      "
+                    >
+                      Equipe
+                    </a>
+                  </li>
+                  <li class="relative group">
+                    <a
+                      href="#contact"
+                      class="
+                        ud-menu-scroll
+                        text-base text-dark
+                        lg:text-white
+                        lg:group-hover:opacity-70
+                        lg:group-hover:text-white
+                        group-hover:text-primary
+                        py-2
+                        lg:py-6 lg:inline-flex lg:px-0
+                        flex
+                        mx-8
+                        lg:mr-0 lg:ml-7
+                        xl:ml-12
+                      "
+                    >
+                    Contact
+                    </a>
+                  </li>
+                  -->
+                </ul>
+              </nav>
+            </div>
+            <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
+                         
+               <%= link_to "S'inscrire au prépa", new_user_registration_path, class:" button is-primary is-outlined mr-2 text-white" %>
+             
+             <%= link_to 'Se Connecter', new_user_session_path, method: :delete, class:"button is-danger is-outlined " %>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
