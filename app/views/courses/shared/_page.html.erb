@@ -518,11 +518,19 @@
 
                 </div>
               </div>
+         <% if currentUserStatus?(current_user) === ":team?" %>
+          <%= link_to 'Edite léçon', edit_course_path(@course), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+          <%= link_to 'Exercices', new_course_exercice_path(@course), class:"mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %> 
+          <div class="inline-block ml-2">
+            <%= button_to 'Supprimer', course_path(@course), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+          </div>
+      <% end %>
+
             </div>
           </div>
         </div>
 
-        
+
       </div>
     </section>
     <!-- ====== Blog Details Section End -->
