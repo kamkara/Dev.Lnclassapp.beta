@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   #landing
   
-  get "prepa", to:'page#index'
+  get "corrige-mes-lacunes", to:'page#index'
   get "prepa-bac", to:'page#show'
   
   ####### Omboarding #######
