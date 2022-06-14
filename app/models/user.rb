@@ -37,7 +37,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :full_name, :email, :password,
             :contact, :status, :city_name, :school_name, :gender, :terms, presence: true
                   
-  validates :status, inclusion: { in: %w(Student Teacher Team),
+  validates :status, inclusion: { in: %w(Student Teacher Team Affilier),
             message: "%{value} acces non identifier" }
 
 
