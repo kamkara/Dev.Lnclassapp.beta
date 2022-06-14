@@ -26,6 +26,9 @@ class User < ApplicationRecord
   before_validation :user_student?
   before_validation :user_teacher?
   before_validation :user_team?
+  before_validation :user_partner?
+
+
   validates :full_name,presence: true,
             format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ },
             length: { minimum:5, maximum: 30,
@@ -37,7 +40,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :full_name, :email, :password,
             :contact, :status, :city_name, :school_name, :gender, :terms, presence: true
                   
-  validates :status, inclusion: { in: %w(Student Teacher Team Affilier),
+  validates :status, inclusion: { in: %w(Student Teacher Team Partner),
             message: "%{value} acces non identifier" }
 
 
@@ -60,10 +63,6 @@ class User < ApplicationRecord
   
 
   ############# CUSTOMIZE ###############
-   #Validate the data presente before all
-  #def user_data_present?
-  #end
-
   #validates  :level_name, :school_name, presence: true
   #validates  :school_name, presence: true, length: {maximum: 50}
   #validates  :material_name, presence: true, length: {maximum: 50}
@@ -74,6 +73,7 @@ class User < ApplicationRecord
      # end
     #end
 
+  #Teachers
   def user_student?
     if self.status == "Student"
       self.email = "#{self.matricule}@gmail.com"
@@ -81,17 +81,28 @@ class User < ApplicationRecord
     end    
   end
   
+  #Teachers
   def user_teacher?
     if self.status == "Teacher"
       self.level_name = "Tles"
       validates :material_name, presence: true
     end
   end
+  
+  #Team
   def user_team?
     if self.status == "Team"
       self.level_name = "Lnclass"
       self.matricule = "#{self.contact}P"
       self.city_name = "HQ-Lnclass"
+    end
+  end
+  
+  #Partner
+  def user_partner?
+    if self.status == "Partner"
+      self.level_name = "partner"
+      self.matricule = "#{self.contact}P"
     end
   end
 

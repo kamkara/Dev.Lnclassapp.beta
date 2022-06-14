@@ -52,6 +52,8 @@ module ApplicationHelper
     case current_user.status
     when "Student"
       ":student?"
+    when "Partner"
+      ":partner?"
     when "Teacher"
       ":teacher?"
     when "Team"
