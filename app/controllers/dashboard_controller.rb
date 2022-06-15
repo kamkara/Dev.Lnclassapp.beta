@@ -8,6 +8,8 @@ class DashboardController < ApplicationController
   def index
     @DashboardUserStudent = User.student.orderDesc
     @DashboardUserStudentDaily = @DashboardUserStudent.daily_sign_up
+    @UserMember = @DashboardUserStudent.membership
+    @UserMember_from_partner = @UserMember.where("referral_in = ?", current_user.referral_out)
   end
 
   #Teacher dashboard
