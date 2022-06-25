@@ -17,7 +17,7 @@ class Course < ApplicationRecord
   ################## Slug ###############
   def slugged_custom
     #Apprendre-a-calculer-les-limites-math-tleD
-    "#{title} #{material_name}"
+    "#{title}"
   end
 
   extend FriendlyId

@@ -1,12 +1,12 @@
 module ApplicationHelper
      #Onglet Title
     def title
-        base_title = "Lnclass Education"
-        if @title.nil?
+      base_title = "Lnclass Education"
+      if @title.nil?
         base_title
-        else
+      else
         "#{@title} | #{base_title}"
-        end
+      end
     end
     #site description
     def description
