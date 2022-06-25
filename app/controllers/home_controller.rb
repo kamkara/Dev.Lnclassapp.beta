@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: %i[team, page]
+  before_action :authenticate_user!, except: %i[team, post]
   before_action :Enable_Level, 
                 :Enable_Material
   
@@ -11,9 +11,7 @@ class HomeController < ApplicationController
   def team
   end
 
-  def page
-    
-    @PageCourse = Course.all.order('created_at desc')
+  def post
   end
   
   private

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to:'homepage#index'
   get "feed", to:'home#index'
   get "t", to:'home#team'
+  get "partner", to:'home#post'
   
   #landing
   
