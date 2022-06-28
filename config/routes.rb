@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "partner", to:'home#post'
   
   #landing
-  
+ 
   get "corriger-mes-lacunes", to:'page#index'
   get "prepa-bac", to:'page#show'
   
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get "data", to:'compagny#data'
   get 'compagny/membership'
 
-
+  
   ####### Analytics && Data  #######
   authenticate :user, ->(user) { user.status == "Team" } do
     mount Blazer::Engine, at: "blazer"
@@ -56,12 +56,11 @@ Rails.application.routes.draw do
     resources :questions, only: [:new, :create, :destroy]
     resources :results, only: [:new, :create]
   end
-
+  
   ###### Ressources ########
   resources :levels, :city_ereas, :courses, :materials,
-            :results, :answers, :questions, :exercices,
-            :welcomes
-    
+  :results, :answers, :questions, :exercices,
+  :welcomes, :landpages
   
   ######### USER DATA #########
   devise_scope :user do
@@ -70,8 +69,8 @@ Rails.application.routes.draw do
   end
 
   devise_for  :users,
-              :path => '',
-              :path_names => 
+  :path => '',
+  :path_names => 
               { :sign_in =>     'connexion',
                 :sign_out =>     'logout',
                 :sign_up =>       '',

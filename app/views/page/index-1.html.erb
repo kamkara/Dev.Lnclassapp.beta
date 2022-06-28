@@ -1,0 +1,23 @@
+<% @title="Fil léçon" %>
+
+
+
+<div class="mb-20">
+<%= render "landpages/shared/navbar" %>
+</div>
+<div class="columns is-desktop ">
+  <!-- Sidebar -->
+  <div class="column is-2 mt-10 ml-6">
+      <!-- feed material -->
+      
+      <!-- Terms -->
+      <div class="mt-4">
+        <% render "home/shared/terms" %>        
+      </div>
+  </div>
+  <!-- Feed -->
+  <div class="column is-8 mt-10">
+    <!-- feed course -->
+    <%= render @landpages %>
+  </div>
+</div>
