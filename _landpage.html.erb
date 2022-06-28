@@ -1,0 +1,30 @@
+<% @Landpages.each do |landpage| %>
+    <div class="bg-white border p-2 mb-2">
+        <!-- Title-->
+        <h2 class="font-semibold text-xl" > <%= link_to course_path(landpage) do %> <%= landpage.title %> <% end %></h2>
+
+        <!-- Courses-->
+        <div class="border rounded-md mt-2 ">
+            <div class="p-2">
+                <%= link_to course_path(landpage), class:"hover:text-black text-black no-underline" do %>
+                    <%= truncate(strip_tags(landpage.content.to_s.html_safe), length: 400) %>
+                    <span class="bg-blue-300" id=start-reading><i class="mx-2">voir plus ...</i></span>
+                <% end %>
+            </div>
+            <!-- Feed Bar-->
+            <div class="flex border py-2 font-semibold px-2">
+                <div class="flex w-1/4"> 
+                    <%= link_to 'Exercices',"/corriger-mes-lacunes", class:"text-black" %>
+                </div>
+                <div class="flex w-2/4"> 
+                  
+                  <%= link_to 'Traité Lacunes', "/corriger-mes-lacunes", class:"text-black" %>
+                </div>
+                <div class="flex w-1/4">
+                    <%= link_to 'Rédactions', "/corriger-mes-lacunes", class:"text-black" %>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<% end %> 

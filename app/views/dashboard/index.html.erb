@@ -3,6 +3,7 @@
 <div x-data="setup()" :class="{ 'dark': isDark }">
   <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
 
+      <% if currentUserStatus?(current_user) === ":team?" %>
       <!-- Header -->
       <%= render "dashboard/components/header" %>
       <!-- ./Header -->
@@ -19,12 +20,12 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 p-4 gap-4">
     
           <!-- Social Traffic -->
-        <%= render "dashboard/components/traffic" %>
+        <%#= render "dashboard/components/traffic" %>
           
           <!-- ./Social Traffic -->
     
           <!-- Recent Activities -->
-        <%= render "dashboard/components/activities" %>
+        <%#= render "dashboard/components/activities" %>
         <!-- ./Recent Activities -->
       </div>
     
@@ -32,5 +33,37 @@
         <%= render "dashboard/components/table" %>
         <!-- ./Client Table -->
       </div>
+        <% elsif currentUserStatus?(current_user) === ":partner?" %>
+
+         <!-- Header -->
+      <%= render "dashboard/components/header" %>
+      <!-- ./Header -->
+      <!-- Sidebar -->
+      <%= render "dashboard/components/sidebar" %>
+      
+      <!-- ./Sidebar -->
+
+      <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
+        <!-- Statistics Cards -->
+        <%= render "dashboard/components/statistics" %>
+       
+        <!-- ./Statistics Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 p-4 gap-4">
+    
+          <!-- Social Traffic -->
+        <%#= render "dashboard/components/traffic" %>
+          
+          <!-- ./Social Traffic -->
+    
+          <!-- Recent Activities -->
+        <%#= render "dashboard/components/activities" %>
+        <!-- ./Recent Activities -->
+      </div>
+    
+        <!-- Client Table -->
+        <%= render "dashboard/components/table" %>
+        <!-- ./Client Table -->
+      </div>
+      <% end %>
   </div>
 </div>    

@@ -10,5 +10,9 @@ class ApplicationRecord < ActiveRecord::Base
   scope :daily_sign_up, -> { where("created_at >= ?", Time.zone.now.beginning_of_day)}
   scope :allOrderDesc, -> { all.order('created_at desc')}
   scope :orderDesc, -> { order('created_at desc')}
+
+#User Membership
+scope :membership, -> { where("payment_status = ?", "Abonné")}
+
   
 end

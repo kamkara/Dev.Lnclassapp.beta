@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       sign_up_params = [ :first_name, :last_name, :full_name, :matricule, :level_name,
       :material_name, :school_name, :contact, :city_name, :status, :email,
-                        :password, :slug, :gender, :payment, :terms, :avatar_profil]
+                        :password, :slug, :gender, :payment, :terms, :avatar_profil, :referral_in, :referral_out]
                                 
     #update_params  = [ :school_name, :status, :avatar_profil, :status_payment]
      

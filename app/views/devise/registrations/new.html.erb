@@ -90,6 +90,7 @@
           <!-- Role -->
           <%= f.hidden_field :status, value:"Student" %>
           <!-- N° matricule -->
+
           <div class="mb-2 control">
             <label class="label">Etablissement:</label>
               <%= f.text_field :school_name, placeholder:"Etablissement ...",
@@ -97,13 +98,22 @@
               <br>
               <small class="italic">Ecrivez <strong class="">Libre</strong> si tu es candidat(e) Libre.</small>
           </div>
+
+          <!-- N° referral -->
+          <div class="mb-2 control">
+            <label class="label">Code de Reduction:</label>
+              <%= f.text_field :referral_in, placeholder:"Code reduction ...",
+              class:"rounded-md input",  hide_label:true %>
+              <br>
+              <small class="italic">Laissez le champs vide, si tu n'as pas de code de reduction </small>
+          </div>
             <div class="my-4">
               <%= f.label "Je suis :", class:"font-bold" %> <br>
               <%= f.radio_button :gender, :Homme, inline: true, checked: true, class:"" %> <span class="mr-6">Une Femme</span>
               <%= f.radio_button :gender, :Femme, inline: true %> Un Homme
             </div>
         
-         <div class="mb-4">
+         <div class="mb-4 hidden">
             <%= f.check_box :terms, checked: true %>
               Décochez cette case si vous n'acceptez nos <%= link_to "conditions d'utilisation", "#", class:"no-underline font-semibold" %>  et notre <%= link_to "politique de confidentialité", "#", class:"font-semibold" %> 
          </div>
