@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "prepa-philo", to:'sign_up#prepa_philo'
   get "bac-ivoire", to:'sign_up#prepa_bac_ivoire'
+  get "partners", to:'sign_up#prepa_partners'
   
   ####### Home page #######
   root to:'homepage#index'

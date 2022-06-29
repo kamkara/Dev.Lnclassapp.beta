@@ -52,8 +52,6 @@ module ApplicationHelper
     case current_user.status
     when "Student"
       ":student?"
-    when "Partner"
-      ":partner?"
     when "Teacher"
       ":teacher?"
     when "Team"
@@ -63,6 +61,17 @@ module ApplicationHelper
     end
   end
 
+  #FIND PARTNER
+  def currentUserpartner?(current_user)
+    case current_user.referral_out
+    when "philo"
+      ":philo?"
+    when "bac-ivoire"
+      ":bac-ivoire?"
+    end
+  end
+
+  
   def moderator?(current_user)
     if current_user.role === "Team" || current_user.id ===  @course.user_id
       ":moderator?"

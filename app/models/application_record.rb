@@ -11,6 +11,11 @@ class ApplicationRecord < ActiveRecord::Base
   scope :allOrderDesc, -> { all.order('created_at desc')}
   scope :orderDesc, -> { order('created_at desc')}
 
+
+  # Find partner referral number students
+  
+  scope :partnership_ref_philo, -> { where("referral_in = ?" , "philo")}
+  scope :partnership_ref_ivoire, -> { where("referral_in = ?" , "bac-ivoire")}
 #User Membership
 scope :membership, -> { where("payment_status = ?", "Abonné")}
 

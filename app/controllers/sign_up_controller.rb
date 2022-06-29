@@ -4,4 +4,6 @@ class SignUpController < ApplicationController
 
   def prepa_bac_ivoire
   end
+  def prepa_partners
+  end
 end
