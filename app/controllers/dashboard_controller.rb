@@ -9,7 +9,10 @@ class DashboardController < ApplicationController
     @DashboardUserStudent = User.student.orderDesc
     @DashboardUserStudentDaily = @DashboardUserStudent.daily_sign_up
     @UserMember = @DashboardUserStudent.membership
-    @UserMember_from_partner = @UserMember.where("referral_in = ?", current_user.referral_out)
+    @UserFormPartner = @DashboardUserStudent.where("referral_in = ?", current_user.referral_out)
+
+    @UserFronPhilo = @DashboardUserStudent.partnership_ref_philo
+    @UserFromBacIvoire = @DashboardUserStudent.partnership_ref_ivoire
   end
 
   #Teacher dashboard

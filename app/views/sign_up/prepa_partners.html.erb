@@ -1,0 +1,89 @@
+<% @title="Inscription" %>
+
+<div class="container card ">
+  <h2 class="bold-semibold Text-2xl mt-10">Créer votre compte</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+     <!-- First name -->
+    <div class="field">
+      <label class="label">Nom:</label>
+      <div class="control">
+        <%= f.text_field :first_name, placeholder:"votre nom ...", class:"input rounded-md mx-auto" %>
+      </div>
+    </div>
+  <!-- Last name  -->
+    <div class="">
+      <label class="label">Prénom:</label>
+      <div class="control">
+        <%= f.text_field :last_name, placeholder:"Votre Prénom ...", class:"input rounded-md" %>
+      </div>
+    </div>
+    
+    <!-- N° whatsapp  -->
+    <div class="">
+      <label class="label">N° WhatsApp:</label>
+      <div class="control">
+        <%= f.telephone_field :contact, placeholder:"N° WhatsApp ...", class:"input rounded-md" %>
+      </div>
+    </div>
+    
+  <!-- Email  -->
+    <div class="">
+      <label class="label">Email:</label>
+      <div class="control">
+        <%= f.email_field :email, placeholder:"Votre Email ...", class:"input rounded-md" %>
+      </div>
+    </div>
+    
+  <!-- Password  -->
+    <div class="">
+      <label class="label">Mot de passe:</label>
+      <div class="control">
+        <%= f.password_field :password, placeholder:"*******", class:"input rounded-md" %>
+      </div>
+    </div>
+    
+    <!-- Role -->
+    <%= f.hidden_field :status, value:"Team" %>
+    <%= f.hidden_field :school_name, value:"HQ-school" %>  
+    <%= f.hidden_field :city_name, value:"HQ-school" %>  
+   
+    <div class="">
+      <label class="label">Code partenaire:</label>
+      <div class="control">
+        <%= f.text_field :referral_out, placeholder:"votre code ...", class:"input rounded-md" %>
+      </div>
+    </div>
+    
+    <!-- Terms -->
+    <div class="field mt-4">
+      <div class="control">
+        <label class="checkbox">
+        <%= f.check_box :terms , checked: true%>
+          Accepter les <%= link_to 'termes', "#", class:"no-underline font-semibold" %> et <%= link_to "Conditions d'utilisation", "#", class:"font-semibold" %>
+        </label>
+      </div>
+    </div>
+    <!-- Gender -->
+    <div class="field">
+      <p class="">Je suis :</p>
+      <div class="control">
+        <label class="radio" >
+        <%= f.radio_button :gender, :Femme, checked: true %>
+        Une Femme
+        </label>
+        <label class="radio">
+        <%= f.radio_button :gender, :Homme %>     
+        Un Homme
+        </label>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Créer le compte" , class:"button is-info mb-10" %>
+    </div>
+
+  <% end %>
+    
+</div>
