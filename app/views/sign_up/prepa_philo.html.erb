@@ -1,0 +1,122 @@
+<% @title="Inscription" %>
+
+
+<!-- component -->
+<!-- This is an example component -->
+<div class="max-w-2xl mx-auto bg-white my-2 p-2">
+    <div class="border mb-4">
+      <div class="flex mx-auto bg-blue-500 max-w-2xl  rounded-md-b">
+        <h4 class="font-semibold  text-white py-2 mx-auto text-2xl ">Bienvenue Sur Lnclass Education</h4>
+      </div>
+      
+      <p class=" text-black p-2">
+        Remplissez simplement ces champs puis cliquer sur le bouton  <span class="font-semibold"> Terminer L'inscription</span>
+        pour valider votre inscription au programme <b class="">Eviter d'échouer au Bac 2022</b>.
+      </p>
+      
+    </div>
+
+    <%= form_for(resource, as: resource_name, inline_errors: true, url: registration_path(resource_name)) do |f| %>
+
+      <div class="px-2 md:px-4 py-2">
+        <!-- First && last Name grouped -->
+        <div class="field">
+          <div class="field-body">
+            <div class="field">
+              <label class="label">Nom:</label>
+              <div class="control is-expanded">
+                <%= f.text_field :first_name, placeholder:"votre nom ...", class:"input rounded-md mx-auto",  hide_label:true, autofocus: true %>
+                <small class="italic">Ex: Koffi</small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Prénom:</label>
+              <div class="control is-expanded">
+                <%= f.text_field :last_name, placeholder:"Votre Prénom ...", class:"input rounded-md mx-auto" ,  hide_label:true %>
+                <small class="italic">Ex: Mariam</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- N° matricule -->
+        <div class="field">
+          <label class="label">N° Matricule:</label>
+          <div class="control">
+            <%= f.text_field :matricule, placeholder:"N° Matricule ...",  class:"input rounded-md", 
+              hide_label:true %>
+                <small class="italic">Ex: 10134330R</small>
+          </div>
+        </div>
+        <!-- N° whatsapp  -->
+        <div class="conrol">
+          <label class="label">N° WhatsApp:</label>
+            <%= f.telephone_field :contact, placeholder:"N° WhatsApp ...", class:"rounded-md input",
+              hide_label:true %>
+              <br>
+              <small class="italic">Ex: 0759977903, en 10 chiffres.</small>
+          
+        </div>
+          
+        <!-- City && Serie name -->
+        <div class="field is-horizontal mt-2">
+          <!-- City  name -->
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+                <label class="label">Ville :</label>
+                <div class="select is-fullwidth mb-4">
+                  <%= f.select :city_name, @city_ereas.map{|city_erea| [city_erea.title]},
+                                    help:"Selectionne la ville de fréquentation ...", class:" rounded-md",  hide_label:true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level  name -->
+          <div class="field-body">
+            <div class="field is-narrow">
+              <div class="control">
+              <label class="label">Série :</label>
+                <div class="select is-fullwidth">
+                  <%= f.select :level_name, @levels.map{|level| [level.title]},
+                                  help:"Série A1 , A2 ou D ...", class:" rounded-md",  hide_label:true %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- Role -->
+          <%= f.hidden_field :status, value:"Student" %>
+          <%= f.hidden_field :referral_in, value:"philo" %>
+          <!-- N° matricule -->
+
+          <div class="mb-2 control">
+            <label class="label">Etablissement:</label>
+              <%= f.text_field :school_name, placeholder:"Etablissement ...",
+              class:"rounded-md input",  hide_label:true %>
+              <br>
+              <small class="italic">Ecrivez <strong class="">Libre</strong> si tu es candidat(e) Libre.</small>
+          </div>
+
+          <!-- N° referral -->
+        
+            <div class="my-4">
+              <%= f.label "Je suis :", class:"font-bold" %> <br>
+              <%= f.radio_button :gender, :Homme, inline: true, checked: true, class:"" %> <span class="mr-6">Une Femme</span>
+              <%= f.radio_button :gender, :Femme, inline: true %> Un Homme
+            </div>
+        
+         <div class="mb-4 hidden">
+            <%= f.check_box :terms, checked: true %>
+              Décochez cette case si vous n'acceptez nos <%= link_to "conditions d'utilisation", "#", class:"no-underline font-semibold" %>  et notre <%= link_to "politique de confidentialité", "#", class:"font-semibold" %> 
+         </div>
+          <div class="actions">
+            <%= f.submit "Terminer L'Inscription" , class:"button is-info" %>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+</div>
