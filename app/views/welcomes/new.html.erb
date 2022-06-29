@@ -7,48 +7,65 @@
         <!-- welcome Message-->
       <div class="border rounded-md p-2">
         <h2 class="text-bold text-3xl">
-            bienvenu(e) <br class=""> 
-            sur la plateforme de <b class="">Prépa Bac</b>.
+            bienvenu(e) 
+             <b class="">Prépa Bac</b>.
         </h2>
-        <p class=""><%= current_user.last_name %> Votre inscription à bien été validé.</p>
-        <p class="mb-2">Pour vous montrez notre sérieux <%= current_user.last_name %>
-          <br > tu as 3 jours de prépa gratuits, alors en profite bien. 
-          <br class=""> Le Bac n'est plus loin.
-        </p>
-
-
+        <p class=""><%= current_user.last_name %> Votre inscription sera validée par <b class=""> M.Kamaté</b> dans les heures a venir.</p>
+        
         <!-- welcome Remember-->
         <div class="bg-green-200 border p-2">
             <b class="">Petit Rappel: </b>
-            <i class="">
-            pour se connecter, Cliquez sur " <b class="">Se Connecter</b>" puis entre ton N° matricule et ton N° Whatsapp pour se connecter.
-            </i>
+            <p class="my-2"><b class=""><%= current_user.last_name %></b> , tu trouveras les resumés de 5 oeuvres litteraires sur la fonction Engagée de la litterature.</p>
         </div>
           <hr>
-          <div class="border rounded-md-b bg-gray-200">
-            <p class="p-2">Lnclass Prépare les candidats au Bac avec des sujets de type Bac et des sujets des meilleures écoles qui font
-              généralement 100%. Si leur élèves sont adminisent,<br>
-               Toi aussi tu dois être Adminis(e).
+          <div class="mx-auto">
+          <h1 class="font-bold mx-8 mb-8 underline">resumés d'oeuvres Litteraire</h1>
+          </div>
+          <div class="border rounded-md-b">
+            <p class="p-2 bg-gray-200"> <b class="">Résume N° 1 : pleurer-rire (1982) Henry lopes </b>. <br> 
+            Dans ce roman, l’auteur dénonce la dictature,
+             la malhonnêteté des dirigeants. <br>
+              Il parle des rapports entretenus par ces régimes dictatoriaux  avec les puissances occidentales,
+              des rapports entachés par une certaine hypocrisie. <br>
+              Chacun se soucie uniquement de son profit personnel en détournant du bien être du peuple.
               </p>
+            <p class="p-2 my-2 bg-gray-200">
+              <b class="">Résume N° 2 :  Le devoir de violence (1968) Yambo Ouoleguem</b> <br>
+               ce roman se situe dans la perspective d’une réfutation de la thèse de la négritude qui opposait au mépris de l’accident à l’égard de l’Afrique. <br>
+               L’auteur s’inscrit en faux contre la vision d’une Afrique précoloniale parée de toutes les vertus et il entreprend de démontrer que derrière cette utopie se dissimule la réalité d’un pouvoir despotique et cruel. <br>
+               La vérité historique ainsi établie Ouoleguem s’attaque à tous les africanistes qui ont contribué à accréditer auprès d’un occident crédule l’image d’une Afrique ventre du monde et berceau de civilisation .
+              </p>
+            <p class="p-2 bg-gray-200"> <b class="">Résume N° 3 : Une si longue lettre (1979) Mariama Bâ </b> <br>
+            raconte le destin croisé de deux amis d’enfance Aissatou et Ramatoulaye, confrontées l’une et l’autre au dramatique problème de la polygamie en milieu musulman. <br>
+             L’auteur décrit la société africaine, elle illustre la vie des femmes africaines confrontées au problème de la polygamie et de la marginalisation . <br>
+              </p>
+            <p class="p-2 my-2 bg-gray-200">
+            <b class="">Résume N° 4 : La tragédie du roi Christophe (1963) Aimé Césaire </b> <br>
+            dénonce la désunion, la trahison, la dictature. <br>
+             C’est la tragédie d’un roi qui échoue. <br>
+             il a la volonté d’inculquer à son peuple la conscience révolutionnaire ; <br>
+             cette pièce de théâtre est le miroir des indépendances africaines .
+            </p>
+            <p class="p-2 my-2 bg-gray-200">
+            <b class="">Résume N° 5 : Perpétue et l’habitude de malheur (1974) Mongo Béti</b> <br>
+            parle de la prostitution de perpétue par son propre mari Edouard un jeune fonctionnaire servile et lâche de la police en vue  d’obtenir une promotion sociale. <br>
+            L’auteur dénonce la prostitution, la dictature, les arrestations  arbitraires la misère du peuple .
+            </p>
+            
+           
+            <div class="bg-green-200 border p-2 px-8">
+            <div class="mx-8">
+            <p class=""><b class="">Sauve le Bac de vos ami(e)s: </b> </p> 
+            <p class="">
+              <%= link_to "J'informe 3 groupes et mes ami(e)s","https://wa.me/?text=Si tu as encore des problemes en Fr, ou HG ou Philo, STP vient participer a ce programme *Evitez d'echouer au bac*. le lien lnclass.com/" %>
+            </p>
+            </div>
+
           </div>
         </div>
     </div>
 
-    <!-- welcome form-->
-    <div class="border rounded-t-name p-2">
-      <h2 class="mb-2 bg-gray-200 p-2 text-2xl"> <span class="font-bold underline"><%= current_user.last_name %></span> aide les professeurs à t'aider</h2>
-      <div class="">
-        <p class="">
-         La travail de <strong> Des professeurs Lnclass</strong> est de t'aider à réussi le Bac cette année.
-          </p>
-          <i class="">Si tu as des lacunes, c'est pas un problème, nous allons les corrigées en priorité. </i>
-
-          <p class="border p-2 bg-blue-200 black">Pour céla dit-nous les matières dans lesquelles tu dois t’améliorer pour réussir ton Bac?</p>
-      </div>
-        <!-- welcome form-->
-        <%= render "form", welcome: @welcome %>
-      </div>
-    </div> 
+    
     
 </div>
 
