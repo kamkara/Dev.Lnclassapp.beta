@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bacs
+  
   get "bac-philo", to:'sign_up#prepa_philo'
   get "bac-ivoire", to:'sign_up#prepa_bac_ivoire'
   get "partners", to:'sign_up#prepa_partners'

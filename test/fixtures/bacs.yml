@@ -4,10 +4,10 @@ one:
   title: MyString
   content: MyText
   slug: MyString
-  status: MyString
+  linked: MyString
 
 two:
   title: MyString
   content: MyText
   slug: MyString
-  status: MyString
+  linked: MyString

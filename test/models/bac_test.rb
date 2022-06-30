@@ -1,6 +1,6 @@
 require "test_helper"
 
-class LandpageTest < ActiveSupport::TestCase
+class BacTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
